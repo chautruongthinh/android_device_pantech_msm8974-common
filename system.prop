@@ -2,10 +2,6 @@
 # system.prop for VEGA IRON 2
 #
 
-ro.build.product=ef63l
-ro.product.device=ef63l
-ro.build.description=ef63l
-
 # RIL
 persist.data.netmgrd.qos.enable=true
 persist.data.tcpackprio.enable=true
@@ -82,11 +78,9 @@ persist.data.qmi.adb_logmask=0
 ro.qc.sdk.camera.facialproc=true
 ro.qc.sdk.gestures.camera=false
 
-
 # Time services
 persist.timed.enable=true
 
 # Wifi
 wifi.interface=wlan0
 wifi.supplicant_scan_interval=15
-
