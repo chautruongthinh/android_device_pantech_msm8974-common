@@ -235,4 +235,4 @@ PRODUCT_PACKAGES += \
     wcnss_service
 
 # Inherit from pantech-common
-$(call inherit-product, device/pantech/common/common.mk)
+$(call inherit-product-if-exists, device/pantech/common/common.mk)
