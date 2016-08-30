@@ -32,7 +32,7 @@
     <ctl name="RX4 Digital Volume" value="84" />
     <ctl name="RX5 Digital Volume" value="84" />
     <ctl name="RX6 Digital Volume" value="84" />
-    <ctl name="RX7 Digital Volume" value="90" />
+    <ctl name="RX7 Digital Volume" value="83" />
     <ctl name="ADC1 Volume" value="19" />
     <ctl name="ADC2 Volume" value="12" />
     <ctl name="ADC3 Volume" value="12" />
