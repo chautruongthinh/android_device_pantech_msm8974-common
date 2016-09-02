@@ -18,6 +18,7 @@ ro.use_data_netmgrd=true
 telephony.lteOnGsmDevice=1
 
 # Audio
+ro.qc.sdk.audio.fluencetype=fluence
 af.fast_track_multiplier=1
 audio.deep_buffer.media=true
 audio_hal.period_size=192
@@ -53,6 +54,7 @@ ro.gps.agps_provider=1
 # Perf
 ro.qualcomm.perf.cores_online=2
 ro.vendor.extension_library=libqti-perfd-client.so
+drm.service.enabled=true
 
 # Graphics
 ro.sf.lcd_density=480
@@ -63,12 +65,9 @@ ro.secwvk=144
 debug.sf.hw=1
 debug.mdpcomp.logs=0
 persist.hwc.mdpcomp.enable=true
+persist.debug.wfd.enable=1
 persist.cne.feature=1
 persist.dpm.feature=3
-
-# QC vendor extension
-ro.vendor.extension_library=libqti-perfd-client.so
-drm.service.enabled=true
 
 # QMI
 persist.data.qmi.adb_logmask=0
