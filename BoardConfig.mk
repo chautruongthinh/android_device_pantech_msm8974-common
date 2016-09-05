@@ -14,8 +14,8 @@
 # limitations under the License.
 #
 
-# inherit from pantech common
--include device/pantech/common/BoardConfigCommon.mk
+# Inherit from pantech-common
+$(call inherit-product-if-exists, device/pantech/common/BoardConfigCommon.mk)
 
 PLATFORM_PATH := device/pantech/ef63l
 
