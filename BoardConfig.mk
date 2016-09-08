@@ -14,9 +14,6 @@
 # limitations under the License.
 #
 
-# Inherit from pantech-common
-$(call inherit-product-if-exists, device/pantech/common/BoardConfigCommon.mk)
-
 PLATFORM_PATH := device/pantech/ef63l
 
 # Bootloader
