@@ -510,3 +510,9 @@ on property:sys.perf.profile=2
     write /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor performance
     write /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor performance
     write /sys/class/kgsl/kgsl-3d0/devfreq/governor performance
+
+on property:dev.bootcomplete=1
+    rm /data/system/perfd/default_values
+    setprop sys.io.scheduler "fiops"
+    start mpdecision
+
