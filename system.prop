@@ -18,12 +18,11 @@ ro.use_data_netmgrd=true
 telephony.lteOnGsmDevice=1
 
 # Audio
-ro.qc.sdk.audio.fluencetype=fluence
 af.fast_track_multiplier=1
 audio.deep_buffer.media=true
 audio_hal.period_size=192
 persist.audio.fluence.voicecall=true
-persist.audio.fluence.speaker=true
+persist.audio.fluence.speaker=false
 persist.audio.fluence.voicerec=false
 use.voice.path.for.pcm.voip=true
 audio.offload.buffer.size.kb=32
@@ -82,3 +81,9 @@ persist.timed.enable=true
 # Wifi
 wifi.interface=wlan0
 wifi.supplicant_scan_interval=15
+
+# OTG
+persist.sys.usb.control=disable
+persist.sys.isUsbOtgEnabled=true
+persist.pantech.usb.version=0
+
