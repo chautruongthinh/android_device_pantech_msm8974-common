@@ -87,3 +87,5 @@ persist.sys.usb.control=disable
 persist.sys.isUsbOtgEnabled=true
 persist.pantech.usb.version=0
 
+# Sdcardfs
+ro.sdcardfs.enable=true
