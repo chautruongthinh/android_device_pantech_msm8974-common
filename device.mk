@@ -229,6 +229,10 @@ PRODUCT_COPY_FILES += \
 # USB
 PRODUCT_PACKAGES += \
     com.android.future.usb.accessory
+	
+# APN
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/apns-conf.xml:system/etc/apns-conf.xml
 
 # WiFi
 PRODUCT_COPY_FILES += \
