@@ -89,10 +89,6 @@ ifeq ($(HOST_OS),linux)
   endif
 endif
 
-# Flags for modem (we still have an old modem)
-COMMON_GLOBAL_CFLAGS += -DUSE_RIL_VERSION_10
-COMMON_GLOBAL_CPPFLAGS += -DUSE_RIL_VERSION_10
-
 # Filesystem
 BOARD_FLASH_BLOCK_SIZE := 131072
 BOARD_BOOTIMAGE_PARTITION_SIZE     := 33554432
