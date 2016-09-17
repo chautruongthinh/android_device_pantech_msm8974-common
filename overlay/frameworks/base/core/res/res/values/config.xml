@@ -365,7 +365,7 @@
     <integer translatable="false" name="config_bluetooth_operating_voltage_mv">3700</integer>
 
     <!-- Enable blur support -->
-    <bool name="config_ui_blur_enabled">true</bool>
+    <!--bool name="config_ui_blur_enabled">true</bool-->
 
     <!-- Doze mode -->
     <string name="config_dozeComponent">com.android.systemui/com.android.systemui.doze.DozeService</string>

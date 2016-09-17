@@ -25,7 +25,7 @@ TARGET_NO_RADIOIMAGE := true
 TARGET_BOARD_PLATFORM := msm8974
 TARGET_BOARD_PLATFORM_GPU := qcom-adreno330
 
-USE_CLANG_PLATFORM_BUILD := true
+# USE_CLANG_PLATFORM_BUILD := true
 
 # Architecture
 TARGET_ARCH := arm
@@ -43,7 +43,7 @@ BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x02000000 --tags_offset 0x01e00000
 BOARD_DTBTOOL_ARGS := -2
 TARGET_KERNEL_ARCH := arm
 TARGET_KERNEL_CONFIG := cyanogenmod_ef63_defconfig
-TARGET_KERNEL_SOURCE := kernel/pantech/ef63l-cm
+TARGET_KERNEL_SOURCE := kernel/pantech/msm8x74
 TARGET_KERNEL_CROSS_COMPILE_PREFIX := arm-linux-androideabi-
 
 # ANT+
@@ -72,7 +72,7 @@ QCOM_BT_USE_SMD_TTY := true
 # Camera
 TARGET_USE_COMPAT_GRALLOC_ALIGN := true
 USE_DEVICE_SPECIFIC_CAMERA := true
-COMMON_GLOBAL_CFLAGS += -DPANTECH_CAMERA_HARDWARE
+BOARD_GLOBAL_CFLAGS += -DPANTECH_CAMERA_HARDWARE
 
 # Charger
 BOARD_CHARGER_DISABLE_INIT_BLANK := true
@@ -158,10 +158,10 @@ BOARD_USES_QC_TIME_SERVICES := true
 TARGET_NO_RPC := true
 
 # SELinux
-include device/qcom/sepolicy/sepolicy.mk
+# include device/qcom/sepolicy/sepolicy.mk
 
-BOARD_SEPOLICY_DIRS += \
-    $(PLATFORM_PATH)/sepolicy
+# BOARD_SEPOLICY_DIRS += \
+#    $(PLATFORM_PATH)/sepolicy
 
 # Wifi
 BOARD_HAS_QCOM_WLAN              := true
@@ -194,9 +194,6 @@ TW_TIME_ZONE_GUISEL		:= "THAIST-7;THAIDT"
 
 # QCNE
 BOARD_USES_QCNE := true
-
-# Use Java 8 to compile
-EXPERIMENTAL_USE_JAVA8	:=true
 
 ifeq ($(BOARD_USES_QCNE),true)
 TARGET_LDPRELOAD := libNimsWrap.so

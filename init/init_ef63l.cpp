@@ -36,15 +36,14 @@
 
 void vendor_load_properties()
 {
-    char device[PROP_VALUE_MAX];
-    char platform[PROP_VALUE_MAX];
-    int rc;
+    std::string platform;
+    std::string device;
     int n = 0;
     char device_buf[PROP_VALUE_MAX];
     FILE *fp = NULL;
 
-    rc = property_get("ro.board.platform", platform);
-    if (!rc || !ISMATCH(platform, ANDROID_TARGET))
+    platform = property_get("ro.board.platform");
+    if (platform != ANDROID_TARGET)
         return;
 
     fp = fopen("/dev/block/platform/msm_sdcc.1/by-name/phoneinfo", "r");
