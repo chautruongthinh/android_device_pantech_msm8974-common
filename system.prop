@@ -42,13 +42,10 @@ ro.qualcomm.bt.hci_transport=smd
 # Camera
 camera2.portability.force_api=1
 
-# DPM
-persist.cne.feature=1
-persist.dpm.feature=3
-
 # GPS
 persist.gps.qc_nlp_in_use=0
 ro.gps.agps_provider=1
+ro.pip.gated=0
 
 # Perf
 ro.qualcomm.perf.cores_online=2
@@ -82,10 +79,5 @@ persist.timed.enable=true
 wifi.interface=wlan0
 wifi.supplicant_scan_interval=15
 
-# OTG
-persist.sys.usb.control=disable
-persist.sys.isUsbOtgEnabled=true
-persist.pantech.usb.version=0
-
-# Sdcardfs
+# SDcardfs
 ro.sdcardfs.enable=true

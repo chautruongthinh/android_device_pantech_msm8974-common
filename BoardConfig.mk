@@ -14,6 +14,9 @@
 # limitations under the License.
 #
 
+# inherit from pantech common
+-include device/pantech/common/BoardConfigCommon.mk
+
 PLATFORM_PATH := device/pantech/ef63l
 
 # Bootloader
@@ -25,7 +28,7 @@ TARGET_NO_RADIOIMAGE := true
 TARGET_BOARD_PLATFORM := msm8974
 TARGET_BOARD_PLATFORM_GPU := qcom-adreno330
 
-# USE_CLANG_PLATFORM_BUILD := true
+USE_CLANG_PLATFORM_BUILD := true
 
 # Architecture
 TARGET_ARCH := arm
@@ -150,6 +153,8 @@ TARGET_RECOVERY_FSTAB := $(PLATFORM_PATH)/rootdir/etc/fstab.qcom
 
 # RIL
 TARGET_RIL_VARIANT := caf
+BOARD_GLOBAL_CFLAGS+= -DUSE_RIL_VERSION_11
+TARGET_NEEDS_TEXT_RELOCATIONS := true
 
 # Simple time service client
 BOARD_USES_QC_TIME_SERVICES := true
@@ -158,23 +163,28 @@ BOARD_USES_QC_TIME_SERVICES := true
 TARGET_NO_RPC := true
 
 # SELinux
-# include device/qcom/sepolicy/sepolicy.mk
+ include device/qcom/sepolicy/sepolicy.mk
 
 # BOARD_SEPOLICY_DIRS += \
-#    $(PLATFORM_PATH)/sepolicy
+    $(PLATFORM_PATH)/sepolicy
+
+# Sensor Compat
+BOARD_GLOBAL_CFLAGS += -DCOMPAT_SENSORS_M
 
 # Wifi
-BOARD_HAS_QCOM_WLAN              := true
-BOARD_WLAN_DEVICE                := qcwcn
-WPA_SUPPLICANT_VERSION           := VER_0_8_X
-BOARD_WPA_SUPPLICANT_DRIVER      := NL80211
-BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_$(BOARD_WLAN_DEVICE)
-BOARD_HOSTAPD_DRIVER             := NL80211
-BOARD_HOSTAPD_PRIVATE_LIB        := lib_driver_cmd_$(BOARD_WLAN_DEVICE)
-WIFI_DRIVER_MODULE_PATH          := "/system/lib/modules/wlan.ko"
-WIFI_DRIVER_MODULE_NAME          := "wlan"
-WIFI_DRIVER_FW_PATH_STA          := "sta"
-WIFI_DRIVER_FW_PATH_AP           := "ap"
+BOARD_HAS_QCOM_WLAN := true
+BOARD_HAS_QCOM_WLAN_SDK := true
+BOARD_WLAN_DEVICE := qcwcn
+BOARD_WPA_SUPPLICANT_DRIVER := NL80211
+BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_qcwcn
+BOARD_HOSTAPD_DRIVER := NL80211
+BOARD_HOSTAPD_PRIVATE_LIB := lib_driver_cmd_qcwcn
+TARGET_USES_WCNSS_CTRL := true
+TARGET_USES_QCOM_WCNSS_QMI := true
+TARGET_USES_WCNSS_MAC_ADDR_REV := true
+WIFI_DRIVER_FW_PATH_STA := "sta"
+WIFI_DRIVER_FW_PATH_AP := "ap"
+WPA_SUPPLICANT_VERSION := VER_0_8_X
 
 # Recovery
 TARGET_RECOVERY_FSTAB := device/pantech/ef63l/rootdir/etc/fstab.qcom
@@ -191,12 +201,5 @@ BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_23x41.h\"
 TW_BRIGHTNESS_PATH := /sys/class/leds/lcd-backlight/brightness
 TARGET_RECOVERY_QCOM_RTC_FIX 	:= true
 TW_TIME_ZONE_GUISEL		:= "THAIST-7;THAIDT"
-
-# QCNE
-BOARD_USES_QCNE := true
-
-ifeq ($(BOARD_USES_QCNE),true)
-TARGET_LDPRELOAD := libNimsWrap.so
-endif
 
 -include vendor/pantech/ef63l/BoardConfigVendor.mk
