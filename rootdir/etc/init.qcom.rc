@@ -197,8 +197,6 @@ on post-fs-data
     mkdir /data/misc/wifi 0770 wifi wifi
     mkdir /data/misc/wifi/sockets 0770 wifi wifi
     mkdir /data/misc/wifi/wpa_supplicant 0770 wifi wifi
-    mkdir /data/misc/dhcp 0770 dhcp system
-    chown dhcp system /data/misc/dhcp
 
     # Update WIFI MAC address
     # Workaround for conn_init not copying the updated firmware
@@ -385,6 +383,14 @@ on property:vold.decrypt=trigger_restart_framework
 on property:persist.env.fastdorm.enabled=true
     setprop persist.radio.data_no_toggle 1
 
+service cnd /system/bin/cnd
+    class late_start
+    socket cnd stream 660 root inet
+
+service dpmd /system/bin/dpmd
+    class late_start
+    socket dpmd stream 660 root system
+
 service irsc_util /system/bin/irsc_util "/etc/sec_config"
     class main
     user root
@@ -529,7 +535,12 @@ service wpa_supplicant /system/bin/wpa_supplicant \
     socket wpa_wlan0 dgram 660 wifi wifi
     disabled
     oneshot
-	
+
+service loc_launcher /system/bin/loc_launcher
+    #loc_launcher will start as root and set its uid to gps
+    class late_start
+    group gps qcom_oncrpc inet net_raw qcom_diag net_admin wifi
+
 service fm_dl /system/bin/sh /system/etc/init.qcom.fm.sh
     class late_start
     user system
