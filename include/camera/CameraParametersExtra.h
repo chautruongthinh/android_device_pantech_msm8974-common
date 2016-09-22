@@ -15,9 +15,6 @@
  */
 
 #define CAMERA_PARAMETERS_EXTRA_C \
-const char CameraParameters::FOCUS_MODE_MANUAL_POSITION[] = "manual"; \
-const char CameraParameters::KEY_APP_MASK[] = "app-mask"; \
-const char CameraParameters::WHITE_BALANCE_MANUAL_CCT[] = "manual-cct"; \
 const char CameraParameters::SKY_SKETCH_C[] = "sky-sketch-c";\
 const char CameraParameters::SKY_SKETCH_M[] = "sky-sketch-m";\
 const char CameraParameters::SKY_IPL_SKETCH_C[] = "pantech-ipl-sketch-c";\
@@ -183,15 +180,20 @@ const char CameraParameters::SKY_IPL_TEXT_WB_C[] = "pantech-ipl-whiteboard-c";\
 const char CameraParameters::SKY_IPL_COLOR_DOT_BLACK[] = "pantech-ipl-color-dot-blk";\
 const char CameraParameters::SKY_IPL_COLOR_DOT_WHITE[] = "pantech-ipl-color-dot-wh";\
 \
-
+void CameraParameters::getColorExtractionCoordinates(int *x, int *y) const {}\
+void CameraParameters::setColorExtractionCoordinates(int x, int y) {}\
+void CameraParameters::getColorExtractionRGB_B(int *x, int *y) const {}\
+void CameraParameters::setColorExtractionRGB_B(int x, int y) {}\
+void CameraParameters::getColorExtractionRGB_G(int *x, int *y) const {}\
+void CameraParameters::setColorExtractionRGB_G(int x, int y) {}\
+void CameraParameters::getColorExtractionRGB_R(int *x, int *y) const {}\
+void CameraParameters::setColorExtractionRGB_R(int x, int y) {}\
+\
 /* LAST_LINE OF CAMERA_PARAMETERS_EXTRA_C, every line before this one *MUST* have
  * a backslash \ at the end of the line or else everything will break.
  */
 
 #define CAMERA_PARAMETERS_EXTRA_H \
-        static const char FOCUS_MODE_MANUAL_POSITION[]; \
-        static const char KEY_APP_MASK[]; \
-        static const char WHITE_BALANCE_MANUAL_CCT[]; \
 	static const char SKY_IPL_FIXED_DOT[];\
 	static const char SKY_IPL_TEXT_BB_B[];\
 	static const char SKY_IPL_TEXT_WB_B[];\
