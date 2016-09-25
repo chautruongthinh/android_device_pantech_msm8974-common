@@ -46,7 +46,7 @@ BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x02000000 --tags_offset 0x01e00000
 BOARD_DTBTOOL_ARGS := -2
 TARGET_KERNEL_ARCH := arm
 TARGET_KERNEL_CONFIG := cyanogenmod_ef63_defconfig
-TARGET_KERNEL_SOURCE := kernel/pantech/ef63
+TARGET_KERNEL_SOURCE := kernel/pantech/msm8x74
 TARGET_KERNEL_CROSS_COMPILE_PREFIX := arm-linux-androideabi-
 
 # ANT+
