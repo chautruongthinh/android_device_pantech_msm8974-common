@@ -37,7 +37,7 @@ media.aac_51_output_enabled=true
 
 # Bluetooth
 bluetooth.hfp.client=1
-ro.qualcomm.bt.hci_transport=smd
+qcom.bluetooth.soc=smd
 
 # Camera
 camera2.portability.force_api=1
