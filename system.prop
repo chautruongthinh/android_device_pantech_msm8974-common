@@ -19,19 +19,16 @@ telephony.lteOnGsmDevice=1
 
 # Audio
 af.fast_track_multiplier=1
-audio.deep_buffer.media=true
 audio_hal.period_size=192
 persist.audio.fluence.voicecall=true
-persist.audio.fluence.speaker=false
-persist.audio.fluence.voicerec=false
-use.voice.path.for.pcm.voip=true
+ro.qc.sdk.audio.fluencetype=fluence
 audio.offload.buffer.size.kb=32
 audio.offload.video=true
 audio.offload.multiple.enabled=false
 audio.offload.gapless.enabled=true
-audio.offload.pcm.16bit.enable=false
-audio.offload.pcm.24bit.enable=false
-av.streaming.offload.enable=true
+audio.offload.pcm.16bit.enable=true
+audio.offload.pcm.24bit.enable=true
+audio.deep_buffer.media=true
 mm.enable.smoothstreaming=true
 media.aac_51_output_enabled=true
 
