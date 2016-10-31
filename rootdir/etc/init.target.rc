@@ -95,8 +95,7 @@ on boot
     setprop ro.nfc.port "I2C"
     chmod 0660 /dev/pn547
     chown nfc nfc /dev/pn547
-    symlink /dev/pn547 /dev/pn544
-
+   
     # TM_CORERIVER
     chmod 0660 /dev/tm_fops
     chown system radio /dev/tm_fops

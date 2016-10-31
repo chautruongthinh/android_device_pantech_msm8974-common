@@ -181,9 +181,6 @@
 # TDMB device
 /dev/tdmb                 0660   media     media
 
-#NFC device
-/dev/pn54*                0600   nfc        nfc
-
 # FEATURE_PANTECH_SND_QSOUND
 /dev/pantech_aud_ctl*     0770   system     audio
 
@@ -196,9 +193,9 @@
 # wlan
 /dev/wcnss_wlan           0660   system     system
 /dev/wcnss_ctrl           0660   system     system
-#nfc permissions
-/dev/nfc-nci              0660    nfc         nfc
-/dev/assd                 0660    nfc         nfc
+
+# nfc permissions
+/dev/pn547                0660   nfc        nfc
 
 # UIO devices
 /dev/uio0                 0660   system     system
