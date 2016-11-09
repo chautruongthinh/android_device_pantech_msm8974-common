@@ -29,10 +29,6 @@ TARGET_SCREEN_WIDTH := 1080
 PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 
-# Recovery
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/rootdir/etc/twrp.fstab:recovery/root/etc/twrp.fstab
-
 # Ramdisk
 PRODUCT_PACKAGES += \
     fstab.qcom \
@@ -71,8 +67,7 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.wifi.direct.xml:system/etc/permissions/android.hardware.wifi.direct.xml \
     frameworks/native/data/etc/android.hardware.opengles.aep.xml:system/etc/permissions/android.hardware.opengles.aep.xml \
     frameworks/native/data/etc/android.hardware.vulkan.level-0.xml:system/etc/permissions/android.hardware.vulkan.level.xml \
-    frameworks/native/data/etc/android.hardware.vulkan.version-1_0_3.xml:system/etc/permissions/android.hardware.vulkan.version.xml   
-	
+    frameworks/native/data/etc/android.hardware.vulkan.version-1_0_3.xml:system/etc/permissions/android.hardware.vulkan.version.xml
 # Audio
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/acdb/MTP_Bluetooth_cal.acdb:system/etc/acdbdata/MTP/MTP_Bluetooth_cal.acdb \
@@ -115,7 +110,7 @@ PRODUCT_PACKAGES += \
 # Doze
 PRODUCT_PACKAGES += \
     VegaDoze
-	
+
 # Graphics
 PRODUCT_PACKAGES += \
     copybit.msm8974 \
@@ -133,7 +128,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/gps/gps.conf:system/etc/gps.conf \
     $(LOCAL_PATH)/gps/flp.conf:system/etc/flp.conf \
-    $(LOCAL_PATH)/gps/sap.conf:system/etc/sap.conf 
+    $(LOCAL_PATH)/gps/sap.conf:system/etc/sap.conf
 
 # IPv6
 PRODUCT_PACKAGES += \
@@ -218,10 +213,6 @@ PRODUCT_COPY_FILES += \
 # USB
 PRODUCT_PACKAGES += \
     com.android.future.usb.accessory
-	
-# APN
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/apns-conf.xml:system/etc/apns-conf.xml
 
 # WiFi
 PRODUCT_COPY_FILES += \
@@ -242,6 +233,3 @@ PRODUCT_PACKAGES += \
     wpa_supplicant.conf \
     wpa_supplicant_overlay.conf \
     p2p_supplicant_overlay.conf
-
-# Inherit from pantech-common
-$(call inherit-product, device/pantech/common/common.mk)

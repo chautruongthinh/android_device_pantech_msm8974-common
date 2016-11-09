@@ -14,9 +14,7 @@
 # limitations under the License.
 #
 
-# inherit from pantech common
--include device/pantech/common/BoardConfigCommon.mk
-
+BOARD_VENDOR := pantech
 PLATFORM_PATH := device/pantech/ef63l
 
 # Bootloader
@@ -83,6 +81,9 @@ BOARD_CHARGER_DISABLE_INIT_BLANK := true
 
 # CM Hardware
 BOARD_HARDWARE_CLASS += $(PLATFORM_PATH)/cmhw
+BOARD_USES_CYANOGEN_HARDWARE := true
+BOARD_HARDWARE_CLASS += \
+    hardware/cyanogen/cmhw
 
 # Enable dexpreopt to speed boot time
 ifeq ($(HOST_OS),linux)
@@ -186,27 +187,16 @@ BOARD_HOSTAPD_PRIVATE_LIB        := lib_driver_cmd_qcwcn
 TARGET_USES_WCNSS_CTRL           := true
 TARGET_USES_QCOM_WCNSS_QMI       := true
 TARGET_USES_WCNSS_MAC_ADDR_REV   := true
-TARGET_WCNSS_MAC_PREFIX          := e8bba8
+TARGET_WCNSS_MAC_PREFIX          := d095c7
 WIFI_DRIVER_FW_PATH_STA          := "sta"
 WIFI_DRIVER_FW_PATH_AP           := "ap"
 WPA_SUPPLICANT_VERSION           := VER_0_8_X
 
 
 # Recovery
-TARGET_RECOVERY_FSTAB := device/pantech/ef63l/rootdir/etc/fstab.qcom
 TARGET_USERIMAGES_USE_EXT4 := true
-TW_THEME := portrait_hdpi
 RECOVERY_GRAPHICS_USE_LINELENGTH := true
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
-TW_NO_USB_STORAGE := true
-TW_INCLUDE_JB_CRYPTO := false
-TW_NO_SCREEN_BLANK := true
-TW_EXCLUDE_ENCRYPTED_BACKUPS := true
-TW_INCLUDE_L_CRYPTO := true
-BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_23x41.h\"
-TW_BRIGHTNESS_PATH := /sys/class/leds/lcd-backlight/brightness
-TARGET_RECOVERY_QCOM_RTC_FIX 	:= true
-TW_TIME_ZONE_GUISEL		:= "THAIST-7;THAIDT"
 
 -include vendor/pantech/ef63l/BoardConfigVendor.mk
 
