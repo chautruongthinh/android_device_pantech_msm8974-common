@@ -14,6 +14,7 @@
 /dev/block/platform/msm_sdcc.1/by-name/userdata    /data        f2fs    noatime,nosuid,nodev,rw,inline_xattr                                   wait,check,formattable,encryptable=footer
 /dev/block/platform/msm_sdcc.1/by-name/cache	   /cache       ext4    noatime,nodiratime,nosuid,nodev,barrier=1      wait,check,formattable
 /dev/block/platform/msm_sdcc.1/by-name/cache       /cache       f2fs    noatime,nosuid,nodev,rw,inline_xattr           wait,check,formattable
-
+/dev/block/platform/msm_sdcc.1/by-name/emmclog     /misc        emmc    defaults 				       defaults
+  		
 /devices/msm_sdcc.2/mmc_host/mmc1*                 auto         auto    defaults        voldmanaged=sdcard1:auto,encryptable=userdata
 /devices/platform/xhci-hcd*                        auto         auto    defaults        voldmanaged=usbdisk:auto,noemulatedsd

@@ -8,3 +8,4 @@
 /rawdata        emmc        	/dev/block/platform/msm_sdcc.1/by-name/rawdata                            flags=display="IMEI";backup=1
 /external_sd	vfat		/dev/block/mmcblk1p1	/dev/block/mmcblk1
 /system		ext4		/dev/block/platform/msm_sdcc.1/by-name/system
+/misc		emmc		/dev/block/platform/msm_sdcc.1/by-name/emmclog
