@@ -109,9 +109,6 @@ USE_DEX2OAT_DEBUG := false
 endif
 endif
 
-# Extended filesystem support
-TARGET_EXFAT_DRIVER := sdfat
-
 # Encryption
 TARGET_HW_DISK_ENCRYPTION := true
 
