@@ -99,6 +99,10 @@ PRODUCT_PACKAGES += \
     camera.msm8974 \
     Snap
 
+# DRM
+PRODUCT_PACKAGES += \
+    libshims_wvm
+
 PRODUCT_PROPERTY_OVERRIDES += \
     media.stagefright.codecremote=false
 
