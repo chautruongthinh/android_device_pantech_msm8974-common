@@ -82,4 +82,4 @@ wifi.supplicant_scan_interval=15
 ro.sys.sdcardfs=true
 
 #OTA
-cm.updater.uri=https://raw.githubusercontent.com/chautruongthinh/CMUpdater-API/master/ef63l/api.json
+cm.updater.uri=https://raw.githubusercontent.com/chautruongthinh/CMUpdater-API/cm-14.1/ef63l/api.json
