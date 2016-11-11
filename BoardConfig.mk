@@ -47,6 +47,9 @@ TARGET_KERNEL_CONFIG := cyanogenmod_ef63_defconfig
 TARGET_KERNEL_SOURCE := kernel/pantech/msm8x74
 TARGET_KERNEL_CROSS_COMPILE_PREFIX := arm-linux-androideabi-
 
+# ReleaseTools
+TARGET_RELEASETOOLS_EXTENSIONS := $(PLATFORM_PATH)/releasetools
+
 # ANT+
 BOARD_ANT_WIRELESS_DEVICE := "vfs-prerelease"
 

@@ -29,6 +29,10 @@ TARGET_SCREEN_WIDTH := 1080
 PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 
+# Checking model
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/releasetools/device_check.sh:system/bin/device_check.sh
+
 # Ramdisk
 PRODUCT_PACKAGES += \
     fstab.qcom \
