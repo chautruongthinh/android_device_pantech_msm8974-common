@@ -15,7 +15,7 @@
 #
 
 BOARD_VENDOR := pantech
-COMMON_PATH := device/pantech/ef63l
+COMMON_PATH := device/pantech/msm8974-common
 # Include path
 TARGET_SPECIFIC_HEADER_PATH := $(COMMON_PATH)/include
 

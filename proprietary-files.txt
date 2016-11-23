@@ -15,7 +15,6 @@ bin/qseecomd
 bin/radish
 bin/rfs_access
 bin/rmt_storage
-bin/sensors.qcom
 bin/thermal-engine
 bin/time_daemon
 
@@ -56,7 +55,6 @@ framework/qcnvitems.jar
 framework/qcrilhook.jar
 
 #lib
-lib/hw/camera.msm8974.so
 lib/hw/gps.msm8974.so
 lib/libchromatix_imx135_liveshot.so
 lib/libchromatix_imx214_liveshot.so
