@@ -16,7 +16,6 @@ bin/radish
 bin/rfs_access
 bin/rmt_storage
 bin/sensors.qcom
-bin/sensorservice
 bin/thermal-engine
 bin/time_daemon
 
@@ -88,8 +87,6 @@ lib/libwcnss_qmi.so
 priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk
 
 #vendor
-vendor/bin/mm-pp-daemon
-vendor/bin/thermal-engine
 vendor/firmware/libpn547_fw.so
 vendor/firmware/libpn547_fw_platform.so
 vendor/firmware/libpn547_pku.so

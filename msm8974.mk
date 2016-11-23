@@ -29,10 +29,6 @@ TARGET_SCREEN_WIDTH := 1080
 PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 
-# Checking model
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/releasetools/device_check.sh:system/bin/device_check.sh
-
 # Ramdisk
 PRODUCT_PACKAGES += \
     fstab.qcom \
@@ -194,9 +190,6 @@ PRODUCT_PACKAGES += \
     libxml2
 
 # NFC packages
-# See https://github.com/CyanogenMod/android_external_libnfc-nci/blob/cm-14.1/halimpl/pn54x/Android.mk#L21
-# for magic values of NXP_CHIP_TYPE.
-NXP_CHIP_TYPE := 1
 PRODUCT_PACKAGES += \
     NfcNci \
     Tag \
@@ -245,3 +238,6 @@ PRODUCT_PACKAGES += \
     wpa_supplicant.conf \
     wpa_supplicant_overlay.conf \
     p2p_supplicant_overlay.conf
+
+# Call the proprietary setup
+$(call inherit-product-if-exists, vendor/pantech/msm8974-common/msm8974-common-vendor.mk)
