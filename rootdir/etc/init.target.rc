@@ -104,6 +104,39 @@ on boot
     chown system radio /dev/touch_fops
 
     # Pantech LED
+    chmod 0660 /sys/class/leds/lp5523:channel0/brightness
+    chmod 0660 /sys/class/leds/lp5523:channel1/brightness
+    chmod 0660 /sys/class/leds/lp5523:channel2/brightness
+    chmod 0660 /sys/class/leds/lp5523:channel3/brightness
+    chmod 0660 /sys/class/leds/lp5523:channel4/brightness
+    chmod 0660 /sys/class/leds/lp5523:channel5/brightness
+    chmod 0660 /sys/class/leds/lp5523:channel6/brightness
+    chmod 0660 /sys/class/leds/lp5523:channel7/brightness
+    chmod 0660 /sys/class/leds/lp5523:channel8/brightness
+    
+    chown system radio /sys/class/leds/lp5523:channel0/brightness
+    chown system radio /sys/class/leds/lp5523:channel1/brightness
+    chown system radio /sys/class/leds/lp5523:channel2/brightness
+    chown system radio /sys/class/leds/lp5523:channel3/brightness
+    chown system radio /sys/class/leds/lp5523:channel4/brightness
+    chown system radio /sys/class/leds/lp5523:channel5/brightness
+    chown system radio /sys/class/leds/lp5523:channel6/brightness
+    chown system radio /sys/class/leds/lp5523:channel7/brightness
+    chown system radio /sys/class/leds/lp5523:channel8/brightness
+
+    chmod 0660 /sys/class/leds/gpled_0/brightness
+    chmod 0660 /sys/class/leds/gpled_1/brightness
+    chmod 0660 /sys/class/leds/gpled_2/brightness
+    chmod 0660 /sys/class/leds/gpled_3/brightness
+    
+    chown system radio /sys/class/leds/led:rgb_red/brightness
+    chown system radio /sys/class/leds/led:rgb_green/brightness
+    chown system radio /sys/class/leds/led:rgb_blue/brightness
+    chown system radio /sys/class/leds/gpled_0/brightness
+    chown system radio /sys/class/leds/gpled_1/brightness
+    chown system radio /sys/class/leds/gpled_2/brightness
+    chown system radio /sys/class/leds/gpled_3/brightness
+
     chown system radio /sys/class/leds/led:rgb_red/brightness
     chown system radio /sys/class/leds/led:rgb_red/blink
     chown system radio /sys/class/leds/led:rgb_red/pan_blink
