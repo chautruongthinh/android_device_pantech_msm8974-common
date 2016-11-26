@@ -1,6 +1,6 @@
 
 #
-# system.prop for VEGA IRON 2
+# system.prop for msm8974
 #
 
 # RIL
@@ -80,6 +80,3 @@ wifi.supplicant_scan_interval=15
 
 # SDcardfs
 ro.sys.sdcardfs=true
-
-#OTA
-cm.updater.uri=https://raw.githubusercontent.com/chautruongthinh/CMUpdater-API/cm-14.1/ef63l/api.json
