@@ -290,36 +290,6 @@
     <!-- Default color for notification LED is white. -->
     <color name="config_defaultNotificationColor">#ffffffff</color>
 
-    <!-- Does the notification LED support multiple colors?
-         Used to decide if the user can change the colors -->
-    <bool name="config_multiColorNotificationLed">true</bool>
-
-    <!-- Does the battery LED support multiple colors?
-         Used to decide if the user can change the colors -->
-    <bool name="config_multiColorBatteryLed">true</bool>
-
-    <!-- Indicate the device's Smart Cover coordinates.
-         If none are provided, then the feature will be disabled.
-         The array should contain 4 values, in pixels, (sample values provided):
-         Top      0
-         Left     100
-         Bottom   Top + 400
-         Right    Display Width - 100
-    -->
-    <!-- disabled until smart cover can be tested
-    <integer-array name="config_smartCoverWindowCoords">
-        <item>0</item>
-        <item>44</item>
-        <item>774</item>
-        <item>1036</item>
-    </integer-array>
-    -->
-
-    <!-- Base "touch slop" value used by ViewConfiguration as a
-         movement threshold where scrolling should begin. -->
-    <dimen name="config_viewConfigurationTouchSlop">8dp</dimen>
-
-    <!-- Vibrator pattern for feedback about a long screen/key press -->
     <integer-array name="config_longPressVibePattern">
         <item>0</item>
         <item>1</item>
