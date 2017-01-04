@@ -1,3 +1,3 @@
-add_lunch_combo lineage_ef63l-user
-add_lunch_combo lineage_ef63l-userdebug
-add_lunch_combo lineage_ef63l-eng
+add_lunch_combo lineage_ef63-user
+add_lunch_combo lineage_ef63-userdebug
+add_lunch_combo lineage_ef63-eng
