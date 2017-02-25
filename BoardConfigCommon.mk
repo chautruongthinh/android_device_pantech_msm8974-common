@@ -188,11 +188,10 @@ WIFI_DRIVER_FW_PATH_STA          := "sta"
 WIFI_DRIVER_FW_PATH_AP           := "ap"
 WPA_SUPPLICANT_VERSION           := VER_0_8_X
 
-
-# Recovery
-TARGET_USERIMAGES_USE_EXT4 := true
-RECOVERY_GRAPHICS_USE_LINELENGTH := true
-TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
+# TWRP Support - Optional
+ifeq ($(WITH_TWRP),true)
+-include device/pantech/msm8974-common/twrp.mk
+endif
 
 -include vendor/pantech/msm8974-common/BoardConfigVendor.mk
 
