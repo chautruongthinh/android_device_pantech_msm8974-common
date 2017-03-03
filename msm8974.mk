@@ -36,6 +36,7 @@ PRODUCT_PACKAGES += \
     init.pantech.usb.sh \
     init.target.rc \
     init.qcom.rc \
+    init.qcom.power.rc \
     ueventd.qcom.rc
 
 PRODUCT_PACKAGES += \

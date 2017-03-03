@@ -27,6 +27,7 @@
 
 import init.target.rc
 import init.pantech.usb.rc
+import init.qcom.power.rc
 
 on early-init
     mount debugfs debugfs /sys/kernel/debug
@@ -690,19 +691,6 @@ on property:persist.sys.qlogd=1
     start qlogd
 on property:persist.sys.qlogd=0
     stop qlogd
-
-on charger
-    #low power governing
-    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor powersave
-    write /sys/devices/system/cpu/cpu1/online 0
-    write /sys/devices/system/cpu/cpu2/online 0
-    write /sys/devices/system/cpu/cpu3/online 0
-    write /sys/module/lpm_levels/enable_low_power/l2 2
-    write /sys/module/msm_pm/modes/cpu0/power_collapse/suspend_enabled 1
-    write /sys/module/msm_pm/modes/cpu0/power_collapse/idle_enabled 1
-    write /sys/module/msm_pm/modes/cpu0/standalone_power_collapse/suspend_enabled 1
-    write /sys/module/msm_pm/modes/cpu0/standalone_power_collapse/idle_enabled 1
-    write /sys/module/msm_pm/modes/cpu0/retention/idle_enabled 1
 
 # Do not set any USB mode while charging
     setprop sys.usb.config charging
