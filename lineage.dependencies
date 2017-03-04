@@ -4,6 +4,10 @@
    "target_path": "device/qcom/common"
  },
  {
+   "repository": "android_vendor_pantech",
+   "target_path": "vendor/pantech"
+ },
+ {
    "repository": "android_kernel_pantech_msm8x74",
    "target_path": "kernel/pantech/msm8x74"
  }
