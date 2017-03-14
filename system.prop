@@ -83,3 +83,10 @@ wifi.supplicant_scan_interval=15
 
 # SDcardfs
 ro.sys.sdcardfs=true
+
+# OTG
+persist.sys.usb.control=disable
+persist.sys.isUsbOtgEnabled=true
+persist.pantech.usb.version=0
+
+
