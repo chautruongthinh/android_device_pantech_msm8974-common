@@ -125,10 +125,6 @@ PRODUCT_PACKAGES += \
     liboverlay \
     libtinyxml
 
-# Gello
-PRODUCT_PACKAGES += \
-    Gello
-
 # GPS
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/gps/gps.conf:system/etc/gps.conf \
