@@ -23,8 +23,6 @@ etc/sensor_def_qcomdev.conf
 etc/data/dsi_config.xml
 etc/data/netmgr_config.xml
 etc/data/qmi_config.xml
-etc/dpm/dpm.conf
-etc/dpm/nsrm/NsrmConfiguration.xml
 etc/firmware/a225_pfp.fw
 etc/firmware/a225_pm4.fw
 etc/firmware/a225p5_pm4.fw
@@ -212,10 +210,7 @@ vendor/lib/libchromatix_skuf_ov12830_p12v01c_preview.so
 vendor/lib/libchromatix_skuf_ov12830_p12v01c_snapshot.so
 vendor/lib/libchromatix_skuf_ov12830_p12v01c_video_hd.so
 vendor/lib/libchromatix_skuf_ov12830_p12v01c_zsl.so
-vendor/lib/libcne.so
 vendor/lib/libcneapiclient.so
-vendor/lib/libcneconn.so
-vendor/lib/libcneqmiutils.so
 vendor/lib/libconfigdb.so
 vendor/lib/libdiag.so
 vendor/lib/libDivxDrm.so
