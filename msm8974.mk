@@ -69,6 +69,7 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.opengles.aep.xml:system/etc/permissions/android.hardware.opengles.aep.xml \
     frameworks/native/data/etc/android.hardware.vulkan.level-0.xml:system/etc/permissions/android.hardware.vulkan.level.xml \
     frameworks/native/data/etc/android.hardware.vulkan.version-1_0_3.xml:system/etc/permissions/android.hardware.vulkan.version.xml
+
 # Audio
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/acdb/MTP_Bluetooth_cal.acdb:system/etc/acdbdata/MTP/MTP_Bluetooth_cal.acdb \
@@ -100,12 +101,13 @@ PRODUCT_PACKAGES += \
     camera.msm8974 \
     Snap
 
+# Charger
+PRODUCT_PACKAGES += \
+    charger_res_images
+
 # DRM
 PRODUCT_PACKAGES += \
     libshims_wvm
-
-PRODUCT_PROPERTY_OVERRIDES += \
-    media.stagefright.codecremote=false
 
 # Data
 PRODUCT_PACKAGES += \
@@ -122,8 +124,7 @@ PRODUCT_PACKAGES += \
     gralloc.msm8974 \
     hwcomposer.msm8974 \
     memtrack.msm8974 \
-    liboverlay \
-    libtinyxml
+    liboverlay
 
 # GPS
 PRODUCT_COPY_FILES += \
@@ -183,8 +184,10 @@ PRODUCT_PACKAGES += \
 
 # RIL
 PRODUCT_PACKAGES += \
+    libbson \
     libcnefeatureconfig \
-    libxml2
+    libxml2 \
+    libtinyxml
 
 # NFC packages
 PRODUCT_PACKAGES += \
