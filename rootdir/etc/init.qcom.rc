@@ -43,14 +43,9 @@ on init
 on early-boot
     # set RLIMIT_MEMLOCK to 64MB
     setrlimit 8 67108864 67108864
-    # Allow subsystem (modem etc) debugging
-    write /sys/module/subsystem_restart/parameters/enable_debug ${persist.sys.ssr.enable_debug}
     write /sys/kernel/boot_adsp/boot 1
 
 on boot
-    setprop persist.service.btcmd "0"
-    setprop ro.bt.bdaddr_path "/persist/.bt_nv.bin"
-    chown bluetooth bluetooth ro.bt.bdaddr_path
     chown bluetooth bluetooth /sys/module/bluetooth_power/parameters/power
     chown bluetooth bluetooth /sys/class/rfkill/rfkill0/type
     chown bluetooth bluetooth /sys/class/rfkill/rfkill0/state
@@ -62,7 +57,7 @@ on boot
     chown system system /sys/module/radio_iris_transport/parameters/fmsmd_set
     chmod 0660 /sys/module/bluetooth_power/parameters/power
     chmod 0660 /sys/module/hci_smd/parameters/hcismd_set
-    chmod 0666 /sys/module/radio_iris_transport/parameters/fmsmd_set
+    chmod 0660 /sys/module/radio_iris_transport/parameters/fmsmd_set
     chmod 0660 /sys/class/rfkill/rfkill0/state
     chmod 0660 /proc/bluetooth/sleep/proto
     chown bluetooth bluetooth /dev/ttyHS0
@@ -72,8 +67,11 @@ on boot
     chown bluetooth bluetooth /sys/devices/platform/msm_serial_hs.0/clock
     chmod 0660 /sys/devices/platform/msm_serial_hs.0/clock
 
+
     chmod 0660 /dev/ttyHS2
     chown bluetooth bluetooth /dev/ttyHS2
+
+    chown system system /sys/devices/fb000000.qcom,wcnss-wlan/wcnss_build_version
 
     #Create QMUX deamon socket area
     mkdir /dev/socket/qmux_radio 0770 radio radio
@@ -90,12 +88,9 @@ on boot
     chmod 2755 /data/misc/perfd
     mkdir /data/system/perfd 0770 root system
     chmod 2770 /data/system/perfd
-    mkdir /persist/drm 0770 system system
 
     #Create NETMGR daemon socket area
     mkdir /dev/socket/netmgr 0750 radio radio
-
-    mkdir /persist/bluetooth 0770 bluetooth bluetooth
 
     setprop wifi.interface wlan0
 
@@ -202,11 +197,6 @@ on post-fs-data
     mkdir /data/misc/dhcp 0770 dhcp dhcp
     chown dhcp dhcp /data/misc/dhcp
 
-    # Update WIFI MAC address
-    # Workaround for conn_init not copying the updated firmware
-    rm /data/misc/wifi/WCNSS_qcom_cfg.ini
-    rm /data/misc/wifi/WCNSS_qcom_wlan_nv.bin
-
     #Create FM dir for patchdownloader
     mkdir /data/misc/fm 0770 system system
     chmod 0770 /data/misc/fm
@@ -294,25 +284,15 @@ on post-fs-data
 # FEATURE_PANTECH_ERR_CRASH_LOGGING   p15060
     chmod 600 /dev/ramdump_modem
     write /sys/module/subsystem_restart/parameters/enable_ramdumps 1
+
+    # adsp
+    write /sys/bus/msm_subsys/devices/subsys0/restart_level "related"
     # modem
-    write /sys/bus/msm_subsys/devices/subsys1/restart_level related
-    # wcnss
-    write /sys/bus/msm_subsys/devices/subsys2/restart_level related
+    write /sys/bus/msm_subsys/devices/subsys1/restart_level "related"
+    # venus
+    write /sys/bus/msm_subsys/devices/subsys2/restart_level "related"
 
-# cpmgr pipe
-    mkdir /dev/cpmgr
-    chown radio radio /dev/cpmgr
-
-    chown system system /dev/subsys_adsp
-    chown system system /dev/subsys_modem
-    chown system system /dev/subsys_venus
-    chown system system /dev/subsys_wcnss
-    chmod 0664 /dev/subsys_adsp
-    chmod 0664 /dev/subsys_modem
-    chmod 0664 /dev/subsys_venus
-    chmod 0664 /dev/subsys_wcnss
-
-    # SKY LCD
+# SKY LCD
     chown system system /sys/class/graphics/fb0/cabc_ctl
     chmod 0664 /sys/class/graphics/fb0/cabc_ctl
     chown system system /sys/class/graphics/fb0/sharpness_ctl
@@ -349,9 +329,6 @@ service usbhub_init /system/bin/usbhub_init
     disabled
     oneshot
 
-on property:persist.radio.atfwd.start=false
-    stop atfwd
-
 on property:radio.atfwd.start=false
     stop atfwd
 
@@ -381,19 +358,17 @@ on property:bluetooth.startbtsnoop=false
     stop btsnoop
 
 on property:vold.decrypt=trigger_restart_framework
-    start config_bluetooth
+    start config_bdadd
     start wcnss-service
+
+service config_bdaddr /system/bin/btnvtool -O
+    class core
+    user bluetooth
+    group bluetooth radio
+    oneshot
 
 on property:persist.env.fastdorm.enabled=true
     setprop persist.radio.data_no_toggle 1
-
-service cnd /system/bin/cnd
-    class late_start
-    socket cnd stream 660 root inet
-
-service dpmd /system/bin/dpmd
-    class late_start
-    socket dpmd stream 660 root system
 
 service irsc_util /system/bin/irsc_util "/etc/sec_config"
     class main
@@ -403,7 +378,7 @@ service irsc_util /system/bin/irsc_util "/etc/sec_config"
 service rmt_storage /system/bin/rmt_storage
     class core
     user root
-    disabled
+    group system wakelock
 
 on property:ro.boot.emmc=true
     start rmt_storage
@@ -416,27 +391,20 @@ service rfs_access /system/bin/rfs_access
 on property:ro.boot.emmc=true
     start rfs_access
 
-on property:bluetooth.start_hci=true
-    start start_hci_filter
+on property:vold.decrypt=trigger_restart_framework
+    start config_bdaddr
+    start wcnss-service
 
-on property:bluetooth.start_hci=false
-    stop start_hci_filter
-
-service start_hci_filter /system/bin/wcnss_filter
+service config_bdaddr /system/bin/btnvtool -O
     class late_start
     user bluetooth
-    group bluetooth
-    disabled
-
-service config_bluetooth /system/bin/sh /system/etc/init.qcom.bt.sh "onboot"
-    class core
-    user root
-    oneshot
+    group bluetooth radio
 
 service hciattach /system/bin/sh /system/etc/init.qcom.bt.sh
     class late_start
     user bluetooth
-    group bluetooth net_bt_admin
+    group bluetooth net_bt_admin qcom_diag diag radio
+    seclabel u:r:bluetooth_loader:s0
     disabled
     oneshot
 
@@ -614,9 +582,6 @@ service ims_regmanager /system/bin/exe-ims-regmanagerprocessnative
     group net_bt_admin inet radio wifi
     disabled
 
-on property:persist.ims.regmanager.mode=1
-    start ims_regmanager
-
 on property:ro.data.large_tcp_window_size=true
     # Adjust socket buffer to enlarge TCP receive window for high bandwidth (e.g. DO-RevB)
     write /proc/sys/net/ipv4/tcp_adv_win_scale  2
@@ -627,8 +592,10 @@ service hcidump /system/bin/sh /system/etc/hcidump.sh
     disabled
     oneshot
 
-service charger /charger
+service charger /sbin/healthd -c
     class charger
+    critical
+    seclabel u:r:healthd:s0
 
 # Define fastmmi
 service fastmmi /system/bin/mmi
@@ -648,12 +615,6 @@ service hvdcp /system/bin/hvdcp
     class core
     user root
     disabled
-
-on property:persist.usb.hvdcp.detect=true
-    start hvdcp
-
-on property:persist.usb.hvdcp.detect=false
-    stop hvdcp
 
 service charger_monitor /system/bin/charger_monitor
     user system
@@ -691,6 +652,14 @@ on property:persist.sys.qlogd=1
     start qlogd
 on property:persist.sys.qlogd=0
     stop qlogd
+
+service ril-daemon1 /system/bin/rild -c 2
+    class main
+    socket rild2 stream 660 root radio
+    socket sap_uim_socket2 stream 660 bluetooth bluetooth
+    socket rild-debug2 stream 660 radio system
+    user root
+    group radio cache inet misc audio log readproc wakelock qcom_diag
 
 # Do not set any USB mode while charging
     setprop sys.usb.config charging

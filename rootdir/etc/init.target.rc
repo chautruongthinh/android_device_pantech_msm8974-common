@@ -40,6 +40,7 @@ on init
 
 on fs
     mount_all fstab.qcom
+    restorecon_recursive /persist
 
     # Keeping following partitions outside fstab file. As user may not have
     # these partition flashed on the device. Failure to mount any partition in fstab file
@@ -292,7 +293,7 @@ service qosmgrd /system/bin/qosmgr /system/etc/qosmgr_rules.xml
    group system
    disabled
 
-service thermal-engine /system/vendor/bin/thermal-engine
+service thermal-engine /system/bin/thermal-engine
    class main
    user root
    socket thermal-send-client stream 0666 system system
@@ -323,6 +324,12 @@ service audiod /system/bin/audiod
    class late_start
    user system
    group system
+
+service wcnss-service /system/bin/wcnss_service
+    class late_start
+    user system
+    group system wifi qcom_diag radio
+    oneshot
 
 service usf_tester /system/bin/usf_tester
     user system
@@ -391,12 +398,6 @@ service imsdatadaemon /system/bin/imsdatadaemon
     socket ims_datad stream 0660 system radio
     group system wifi radio inet net_raw log qcom_diag net_admin
     disabled
-
-service wcnss-service /system/bin/wcnss_service
-    class late_start
-    user system
-    group system wifi qcom_diag radio
-    oneshot
 
 on property:sys.ims.QMI_DAEMON_STATUS=1
     start imsdatadaemon
