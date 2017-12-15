@@ -83,9 +83,8 @@ BACKLIGHT_PATH := /sys/class/leds/lcd-backlight/brightness
 
 # CM Hardware
 BOARD_HARDWARE_CLASS += $(COMMON_PATH)/lineagehw
-BOARD_USES_CYANOGEN_HARDWARE := true
 BOARD_HARDWARE_CLASS += \
-    hardware/cyanogen/cmhw
+    hardware/lineage/lineagehw
 
 # Enable dexpreopt to speed boot time
 ifeq ($(HOST_OS),linux)
