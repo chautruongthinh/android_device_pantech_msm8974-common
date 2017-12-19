@@ -45,7 +45,9 @@ BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x02000000 --tags_offset 0x01e00000
 BOARD_DTBTOOL_ARGS := -2
 TARGET_KERNEL_ARCH := arm
 TARGET_KERNEL_SOURCE := kernel/pantech/msm8x74
-TARGET_KERNEL_CROSS_COMPILE_PREFIX := arm-linux-androideabi-
+#TARGET_KERNEL_CROSS_COMPILE_PREFIX := arm-eabi-
+KERNEL_TOOLCHAIN := $(ANDROID_BUILD_TOP)/prebuilts/gcc/$(HOST_OS)-x86/arm/arm-eabi-4.8/bin
+KERNEL_TOOLCHAIN_PREFIX := arm-eabi-
 
 # ANT+
 BOARD_ANT_WIRELESS_DEVICE := "vfs-prerelease"
@@ -74,7 +76,7 @@ QCOM_BT_USE_SMD_TTY := true
 TARGET_USE_COMPAT_GRALLOC_ALIGN := true
 USE_DEVICE_SPECIFIC_CAMERA := true
 TARGET_HAS_LEGACY_CAMERA_HAL1 := true
-TARGET_NEEDS_PLATFORM_TEXT_RELOCATIONS:= true
+TARGET_NEEDS_PLATFORM_TEXT_RELOCATIONS := true
 
 # Charger
 BOARD_CHARGER_ENABLE_SUSPEND := true
@@ -111,6 +113,11 @@ TARGET_USERIMAGES_USE_F2FS := true
 # SDClang
 TARGET_USE_SDCLANG := true
 
+# Jack
+ifeq ($(ANDROID_JACK_VM_ARGS),)
+ANDROID_JACK_VM_ARGS := -Dfile.encoding=UTF-8 -XX:+TieredCompilation -Xmx4096m
+endif
+
 # Workaround for factory issue
 BOARD_VOLD_CRYPTFS_MIGRATE := true
 
@@ -129,6 +136,9 @@ NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
 
 # Properties
 TARGET_SYSTEM_PROP += $(COMMON_PATH)/system.prop
+
+# Vendor Interface Manifest
+DEVICE_MANIFEST_FILE := $(COMMON_PATH)/manifest.xml
 
 # Keymaster
 TARGET_KEYMASTER_WAIT_FOR_QSEE := true
