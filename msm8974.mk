@@ -101,10 +101,6 @@ PRODUCT_PACKAGES += \
     camera.msm8974 \
     Snap
 
-# Charger
-PRODUCT_PACKAGES += \
-    charger_res_images
-
 # DRM
 PRODUCT_PACKAGES += \
     libshims_wvm

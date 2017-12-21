@@ -85,6 +85,16 @@ on boot
     mkdir /dev/socket/qmux_gps 0770 gps gps
     chmod 2770 /dev/socket/qmux_gps
 
+    # Charger
+    chown root system /sys/module/qpnp_charger/parameters/charger_monitor
+    chown root system /sys/class/power_supply/battery/input_current_max
+    chown root system /sys/class/power_supply/battery/input_current_trim
+    chown root system /sys/class/power_supply/battery/voltage_min
+    chmod 0644 /sys/module/qpnp_charger/parameters/charger_monitor
+    chmod 0644 /sys/class/power_supply/battery/input_current_max
+    chmod 0644 /sys/class/power_supply/battery/input_current_trim
+    chmod 0644 /sys/class/power_supply/battery/voltage_min
+
     #Create PERFD deamon related dirs
     mkdir /data/misc/perfd 0755 root system
     chmod 2755 /data/misc/perfd
@@ -599,6 +609,17 @@ service charger /sbin/healthd -c
     critical
     seclabel u:r:healthd:s0
 
+service qbcharger /charger -m 1
+    disabled
+    oneshot
+    seclabel u:r:healthd:s0
+
+on property:sys.qbcharger.enable=true
+    start qbcharger
+
+on property:sys.qbcharger.enable=false
+    stop qbcharger
+
 # Define fastmmi
 service fastmmi /system/bin/mmi
     user root
@@ -617,21 +638,6 @@ service hvdcp /system/bin/hvdcp
     class core
     user root
     disabled
-
-service charger_monitor /system/bin/charger_monitor
-    user system
-    group system
-    disabled
-
-service qbcharger /charger -m 1
-    disabled
-    oneshot
-
-on property:sys.qbcharger.enable=true
-    start qbcharger
-
-on property:sys.qbcharger.enable=false
-    stop qbcharger
 
 service diag_mdlog_start /system/bin/diag_mdlog
     class late_start

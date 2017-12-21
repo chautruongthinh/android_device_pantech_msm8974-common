@@ -73,9 +73,12 @@ TARGET_HAS_LEGACY_CAMERA_HAL1 := true
 TARGET_NEEDS_PLATFORM_TEXT_RELOCATIONS:= true
 
 # Charger
-BOARD_CHARGER_ENABLE_SUSPEND := true
 BOARD_CHARGER_DISABLE_INIT_BLANK := true
-BACKLIGHT_PATH := /sys/class/leds/lcd-backlight/brightness
+BACKLIGHT_PATH := "/sys/class/leds/lcd-backlight/brightness"
+RED_LED_PATH := "/sys/class/leds/led:rgb_red/brightness"
+GREEN_LED_PATH := "/sys/class/leds/led:rgb_green/brightness"
+BLUE_LED_PATH := "/sys/class/leds/led:rgb_blue/brightness"
+BLINK_PATH := "/sys/class/leds/led:rgb_red/blink"
 
 # CM Hardware
 BOARD_HARDWARE_CLASS += $(COMMON_PATH)/cmhw
