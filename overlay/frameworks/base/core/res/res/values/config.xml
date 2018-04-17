@@ -352,6 +352,9 @@
     <!-- Configuration to support SIM contact batch operation -->
     <bool name="config_sim_phonebook_batch_operation">false</bool>
 
+    <!-- Whether to enable HumanInteractionController by default -->
+    <bool name="config_HICEnabledDefault">false</bool>
+
     <!-- Indicates whether round icons should be parsed from the application manifest. -->
     <bool name="config_useRoundIcon">true</bool>
 
