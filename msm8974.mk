@@ -99,6 +99,8 @@ PRODUCT_PACKAGES += \
 # Camera
 PRODUCT_PACKAGES += \
     camera.msm8974 \
+    libboringssl-compat \
+    libstlport \
     Snap
 
 # DRM
