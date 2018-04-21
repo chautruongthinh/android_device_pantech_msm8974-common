@@ -166,6 +166,9 @@ BOARD_SEPOLICY_DIRS += \
 # Sensor Compat
 BOARD_GLOBAL_CFLAGS += -DCOMPAT_SENSORS_M
 
+# Snapdragon LLVM
+TARGET_USE_SDCLANG := true
+
 # Wifi
 BOARD_HAS_QCOM_WLAN              := true
 BOARD_HAS_QCOM_WLAN_SDK          := true
