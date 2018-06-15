@@ -74,7 +74,7 @@ lib/libqomx_core.so:vendor/lib/libqomx_core.so
 lib/libwcnss_qmi.so:vendor/lib/libwcnss_qmi.so
 
 #priv-app
--priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk:vendor/priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk
+-priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk
 
 #vendor
 vendor/firmware/libpn547_fw.so
