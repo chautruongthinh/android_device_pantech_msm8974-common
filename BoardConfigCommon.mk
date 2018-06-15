@@ -151,9 +151,6 @@ TARGET_RIL_VARIANT := caf
 # Simple time service client
 BOARD_USES_QC_TIME_SERVICES := true
 
-# RPC
-TARGET_NO_RPC := true
-
 # SELinux
 include device/qcom/sepolicy/sepolicy.mk
 include device/qcom/sepolicy/legacy-sepolicy.mk
