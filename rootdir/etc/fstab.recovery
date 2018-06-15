@@ -8,7 +8,7 @@
 #<src>                                             <mnt_point>  <type>  <mnt_flags and options>                     <fs_mgr_flags>
 /dev/block/platform/msm_sdcc.1/by-name/boot        /boot        emmc    defaults                                       defaults
 /dev/block/platform/msm_sdcc.1/by-name/recovery    /recovery    emmc    defaults                                       defaults
-
+/dev/block/platform/msm_sdcc.1/by-name/system      /system      ext4    ro,barrier=1                                   wait
 /dev/block/platform/msm_sdcc.1/by-name/userdata    /data        ext4    noatime,nodiratime,nosuid,nodev,barrier=1,noauto_da_alloc,discard,journal_async_commit      wait,check,formattable,encryptable=footer
 /dev/block/platform/msm_sdcc.1/by-name/userdata    /data        f2fs    noatime,nosuid,nodev,rw,inline_xattr                                   wait,check,formattable,encryptable=footer
 /dev/block/platform/msm_sdcc.1/by-name/cache	   /cache       ext4    noatime,nodiratime,nosuid,nodev,barrier=1,journal_async_commit      wait,check,formattable
