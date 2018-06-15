@@ -85,6 +85,8 @@ ro.sys.sdcardfs=true
 # API (for CTS backward compatibility)
 ro.product.first_api_level=19
 
+persist.media.treble_omx=false
+
 # OTG
 persist.sys.usb.control=disable
 persist.sys.isUsbOtgEnabled=true
