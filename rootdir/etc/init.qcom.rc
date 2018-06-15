@@ -290,6 +290,9 @@ on post-fs-data
 
     setprop vold.post_fs_data_done 1
 
+    # Wifi firmware reload path
+    chown wifi wifi /sys/module/wlan/parameters/fwpath
+
     #Create a folder for SRS to be able to create a usercfg file
     mkdir /data/data/media 0770 media media
 
