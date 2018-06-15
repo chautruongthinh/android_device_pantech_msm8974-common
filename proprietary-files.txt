@@ -1,26 +1,26 @@
 #app
-app/TimeService/TimeService.apk
-app/shutdownlistener/shutdownlistener.apk
+-app/TimeService/TimeService.apk:vendor/app/TimeService/TimeService.apk
+-app/shutdownlistener/shutdownlistener.apk:vendor/app/shutdownlistener/shutdownlistener.apk
 
 # bin
-bin/adsprpcd
-bin/btnvtool
-bin/mm-qcamera-daemon
-bin/hci_qcomm_init
-bin/irsc_util
-bin/mpdecision
-bin/netmgrd
-bin/qmuxd
-bin/qseecomd
-bin/radish
-bin/rfs_access
-bin/rmt_storage
+bin/adsprpcd:vendor/bin/adsprpcd
+bin/btnvtool:vendor/bin/btnvtool
+bin/mm-qcamera-daemon:vendor/bin/mm-qcamera-daemon
+bin/hci_qcomm_init:vendor/bin/hci_qcomm_init
+bin/irsc_util:vendor/bin/irsc_util
+bin/mpdecision:vendor/bin/mpdecision
+bin/netmgrd:vendor/bin/netmgrd
+bin/qmuxd:vendor/bin/qmuxd
+bin/qseecomd:vendor/bin/qseecomd
+bin/radish:vendor/bin/radish
+bin/rfs_access:vendor/bin/rfs_access
+bin/rmt_storage:vendor/bin/rmt_storage
 bin/thermal-engine
-bin/time_daemon
+bin/time_daemon:vendor/bin/time_daemon
+bin/loc_launcher:vendor/bin/loc_launcher
 
 #etc
 etc/sensor_def_qcomdev.conf
-etc/data/dsi_config.xml
 etc/data/netmgr_config.xml
 etc/data/qmi_config.xml
 etc/firmware/a225_pfp.fw
@@ -28,11 +28,11 @@ etc/firmware/a225_pm4.fw
 etc/firmware/a225p5_pm4.fw
 etc/firmware/a300_pfp.fw
 etc/firmware/a300_pm4.fw
-etc/firmware/a330_pfp.fw
-etc/firmware/a330_pm4.fw
-etc/firmware/cpp_firmware_v1_1_1.fw
-etc/firmware/cpp_firmware_v1_1_6.fw
-etc/firmware/cpp_firmware_v1_2_0.fw
+etc/firmware/a330_pfp.fw:vendor/firmware/a330_pfp.fw
+etc/firmware/a330_pm4.fw:vendor/firmware/a330_pm4.fw
+etc/firmware/cpp_firmware_v1_1_1.fw:vendor/firmware/cpp_firmware_v1_1_1.fw
+etc/firmware/cpp_firmware_v1_1_6.fw:vendor/firmware/cpp_firmware_v1_1_6.fw
+etc/firmware/cpp_firmware_v1_2_0.fw:vendor/firmware/cpp_firmware_v1_2_0.fw
 etc/firmware/leia_pfp_470.fw
 etc/firmware/leia_pm4_470.fw
 etc/firmware/venus.b00
@@ -44,13 +44,13 @@ etc/firmware/venus.mbn
 etc/firmware/venus.mdt
 etc/permissions/android.hardware.location.gps.xml
 etc/permissions/com.google.widevine.software.drm.xml
-etc/permissions/qcnvitems.xml
-etc/permissions/qcrilhook.xml
+etc/permissions/qcnvitems.xml:vendor/etc/permissions/qcnvitems.xml
+etc/permissions/qcrilhook.xml:vendor/etc/permissions/qcrilhook.xml
 
 #framework
 framework/com.google.widevine.software.drm.jar
-framework/qcnvitems.jar
-framework/qcrilhook.jar
+framework/qcnvitems.jar:vendor/framework/qcnvitems.jar
+framework/qcrilhook.jar:vendor/framework/qcrilhook.jar
 
 #lib
 lib/hw/gps.msm8974.so
@@ -62,20 +62,20 @@ lib/libchromatix_s5k6b2yx_default_video.so
 lib/libchromatix_s5k6b2yx_preview.so
 lib/libchromatix_s5k6b2yx_vt.so
 lib/libchromatix_s5k6b2yx_vt_common.so
-lib/libdrmdecrypt.so
+lib/libdrmdecrypt.so:vendor/lib/libdrmdecrypt.so
 lib/libgps.utils.so
-lib/libloc_api_v02.so
+lib/libloc_api_v02.so:vendor/lib/libloc_api_v02.so
 lib/libloc_core.so
-lib/libloc_ds_api.so
+lib/libloc_ds_api.so:vendor/lib/libloc_ds_api.so
 lib/libloc_eng.so
-lib/libmdmdetect.so
-lib/libmmjpeg_interface.so
+lib/libmdmdetect.so:vendor/lib/libmdmdetect.so
+lib/libmmjpeg_interface.so:vendor/lib/libmmjpeg_interface.so
 lib/libmm-omxcore.so
-lib/libqomx_core.so
-lib/libwcnss_qmi.so
+lib/libqomx_core.so:vendor/lib/libqomx_core.so
+lib/libwcnss_qmi.so:vendor/lib/libwcnss_qmi.so
 
 #priv-app
-priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk
+-priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk:vendor/priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk
 
 #vendor
 vendor/firmware/libpn547_fw.so
