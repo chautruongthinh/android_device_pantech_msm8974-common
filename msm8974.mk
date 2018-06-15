@@ -229,7 +229,7 @@ PRODUCT_PACKAGES += \
     android.hardware.nfc@1.0-impl \
     NfcNci \
     Tag \
-    nfc_nci.pn54x.default \
+    nfc_nci.bacon \
     com.android.nfc_extras
 
 # NFC access control + feature files + configuration
