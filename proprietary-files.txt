@@ -4,7 +4,6 @@
 
 # bin
 bin/adsprpcd:vendor/bin/adsprpcd
-bin/btnvtool:vendor/bin/btnvtool
 bin/mm-qcamera-daemon:vendor/bin/mm-qcamera-daemon
 bin/hci_qcomm_init:vendor/bin/hci_qcomm_init
 bin/irsc_util:vendor/bin/irsc_util

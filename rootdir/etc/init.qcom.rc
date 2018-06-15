@@ -376,12 +376,6 @@ on property:vold.decrypt=trigger_restart_framework
     start config_bdadd
     start wcnss-service
 
-service config_bt_addr /system/vendor/bin/btnvtool -O
-    class core
-    user bluetooth
-    group bluetooth radio
-    oneshot
-
 on property:persist.env.fastdorm.enabled=true
     setprop persist.radio.data_no_toggle 1
 
