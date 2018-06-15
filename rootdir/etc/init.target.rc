@@ -285,7 +285,7 @@ service qseecomd /system/vendor/bin/qseecomd
 service mpdecision /system/vendor/bin/mpdecision --avg_comp
    class main
    user root
-   group root readproc
+   group root system
    disabled
 
 service qosmgrd /system/bin/qosmgr /system/etc/qosmgr_rules.xml
@@ -296,10 +296,10 @@ service qosmgrd /system/bin/qosmgr /system/etc/qosmgr_rules.xml
 service thermal-engine /system/bin/thermal-engine
    class main
    user root
+   group root
    socket thermal-send-client stream 0666 system system
    socket thermal-recv-client stream 0660 system system
    socket thermal-recv-passive-client stream 0666 system system
-   group root
 
 # QC solution:00029375, disable ENTERPRISE_SECURITY
 #service security-check1 /sbin/security_boot_check system

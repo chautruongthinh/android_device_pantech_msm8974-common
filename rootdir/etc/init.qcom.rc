@@ -623,11 +623,6 @@ service fastmmisrv /system/bin/sh /init.qcom.factory.sh
 on ffbm
     start fastmmisrv
 
-service hvdcp /system/bin/hvdcp
-    class core
-    user root
-    disabled
-
 service ril-daemon1 /system/bin/rild -c 2
     class main
     socket rild2 stream 660 root radio
