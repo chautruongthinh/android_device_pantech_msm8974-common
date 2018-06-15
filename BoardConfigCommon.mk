@@ -85,7 +85,7 @@ BLUE_LED_PATH := "/sys/class/leds/led:rgb_blue/brightness"
 BLINK_PATH := "/sys/class/leds/led:rgb_red/blink"
 
 # CM Hardware
-BOARD_HARDWARE_CLASS += $(COMMON_PATH)/cmhw
+BOARD_HARDWARE_CLASS += $(COMMON_PATH)/lineagehw
 BOARD_USES_CYANOGEN_HARDWARE := true
 BOARD_HARDWARE_CLASS += \
     hardware/cyanogen/cmhw
