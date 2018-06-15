@@ -27,7 +27,8 @@ TARGET_SCREEN_WIDTH := 1080
 
 # Bluetooth
 PRODUCT_PACKAGES += \
-    android.hardware.bluetooth@1.0-impl
+    android.hardware.bluetooth@1.0-impl \
+    libbt-vendor
 
 # Display
 PRODUCT_AAPT_CONFIG := normal
