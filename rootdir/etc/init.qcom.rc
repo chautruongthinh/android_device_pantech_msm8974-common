@@ -422,7 +422,7 @@ service config_bdaddr /system/bin/btnvtool -O
 service hciattach /system/bin/sh /system/etc/init.qcom.bt.sh
     class late_start
     user bluetooth
-    group bluetooth net_bt_admin qcom_diag diag radio
+    group bluetooth net_bt_admin oem_2950 diag radio
     disabled
     oneshot
 
@@ -471,7 +471,7 @@ service ftmd /system/bin/logwrapper /system/bin/ftmdaemon
 service qmuxd /system/bin/qmuxd
     class main
     user radio
-    group radio audio bluetooth gps qcom_diag log
+    group radio audio bluetooth gps diag oem_2950
 
 service netmgrd /system/bin/netmgrd
     class main
@@ -515,7 +515,7 @@ service wpa_supplicant /vendor/bin/hw/wpa_supplicant \
 service loc_launcher /system/bin/loc_launcher
     #loc_launcher will start as root and set its uid to gps
     class late_start
-    group gps qcom_oncrpc inet net_raw qcom_diag net_admin wifi
+    group gps inet net_raw diag oem_2950 net_admin wifi
 
 service fm_dl /system/bin/sh /system/etc/init.qcom.fm.sh
     class late_start
@@ -635,14 +635,14 @@ service hvdcp /system/bin/hvdcp
 service diag_mdlog_start /system/bin/diag_mdlog
     class late_start
     user shell
-    group system qcom_diag sdcard_rw sdcard_r media_rw
+    group system oem_2950 diag sdcard_rw sdcard_r media_rw
     disabled
     oneshot
 
 service diag_mdlog_stop /system/bin/diag_mdlog -k
     class late_start
     user shell
-    group system qcom_diag sdcard_rw sdcard_r media_rw
+    group system oem_2950 diag sdcard_rw sdcard_r media_rw
     disabled
     oneshot
 
