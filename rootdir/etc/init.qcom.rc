@@ -414,7 +414,7 @@ on property:vold.decrypt=trigger_restart_framework
     start config_bdaddr
     start wcnss-service
 
-service hciattach /system/bin/sh /system/etc/init.qcom.bt.sh
+service hciattach /vendor/bin/hci_qcomm_init -e
     class late_start
     user bluetooth
     group bluetooth net_bt_admin oem_2950 diag radio
@@ -423,6 +423,7 @@ service hciattach /system/bin/sh /system/etc/init.qcom.bt.sh
 
 on property:bluetooth.hciattach=true
     start hciattach
+    setprop bluetooth.status on
 
 on property:bluetooth.hciattach=false
     setprop bluetooth.status off
