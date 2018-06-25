@@ -173,7 +173,7 @@
     const char CameraParameters::LGTVT_ON[] = "on";\
     const char CameraParameters::VTS_ON[] = "on";\
     const char CameraParameters::VTS_OFF[] = "off";\
-    const char CameraParameters::KEY_VTS[] = "pantech-vts";\
+    const char CameraParameters::KEY_VTSE[] = "pantech-vts";\
     const char CameraParameters::LLS_OFF[] = "pantech-lls";\
     const char CameraParameters::LLS_ON[] = "on";\
     const char CameraParameters::SKY_IPL_MONO_DOT[] = "pantech-ipl-mono-do";\
@@ -360,7 +360,7 @@
     static const char KEY_SUPPORTED_ANTISHAKE[];\
     static const char KEY_SUPPORTED_FACE_FILTER[];\
     static const char LGTVT_ON[];\
-    static const char KEY_VTS[];\
+    static const char KEY_VTSE[];\
     static const char SCENE_MODE_OFF[];\
     static const char SCENE_MODE_CUSTOM[];\
     static const char VTS_OFF[];\

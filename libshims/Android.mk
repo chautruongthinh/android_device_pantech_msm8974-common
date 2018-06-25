@@ -1,5 +1,4 @@
-#
-# Copyright (C) 2016 The CyanogenMod Project
+# Copyright (C) 2017 The LineageOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -17,12 +16,21 @@ LOCAL_PATH := $(call my-dir)
 
 include $(CLEAR_VARS)
 
-LOCAL_SRC_FILES := wvm.c
-
-LOCAL_SHARED_LIBRARIES := libstagefright_foundation
-
-LOCAL_MODULE := libshims_wvm
-LOCAL_MODULE_TAGS := optional
+LOCAL_SRC_FILES := atomic.cpp
+LOCAL_MODULE := libshim_atomic
+LOCAL_MODULE_CLASS := SHARED_LIBRARIES
+LOCAL_PROPRIETARY_MODULE := true
 
 include $(BUILD_SHARED_LIBRARY)
 
+include $(CLEAR_VARS)
+
+LOCAL_SRC_FILES := CameraParameters.cpp
+
+LOCAL_MODULE := libshim_camera_parameters
+LOCAL_MODULE_CLASS := SHARED_LIBRARIES
+LOCAL_MODULE_TAGS := optional
+LOCAL_PROPRIETARY_MODULE := true
+LOCAL_32_BIT_ONLY := true
+
+include $(BUILD_SHARED_LIBRARY)

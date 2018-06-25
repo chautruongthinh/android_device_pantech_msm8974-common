@@ -19,9 +19,7 @@ $(call inherit-product, frameworks/native/build/phone-xxhdpi-3072-dalvik-heap.mk
 $(call inherit-product-if-exists, frameworks/native/build/phone-xxhdpi-3072-hwui-memory.mk)
 
 # Overlays
-DEVICE_PACKAGE_OVERLAYS += \
-	$(LOCAL_PATH)/overlay \
-	$(LOCAL_PATH)/overlay-lineage
+DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
 # Boot animation
 TARGET_SCREEN_HEIGHT := 1920
@@ -49,6 +47,9 @@ PRODUCT_PACKAGES += \
     init.qcom.rc \
     init.qcom.power.rc \
     ueventd.qcom.rc
+
+PRODUCT_PACKAGES += \
+    init.qcom.bt.sh
 
 # Seccomp
 PRODUCT_COPY_FILES += \
@@ -98,7 +99,9 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_PACKAGES += \
     android.hardware.audio@2.0-impl \
+    android.hardware.audio@2.0-service \
     android.hardware.audio.effect@2.0-impl \
+    android.hardware.audio.effect@2.0-service \
     audio.a2dp.default \
     audio_policy.msm8974 \
     audio.primary.msm8974 \
@@ -114,10 +117,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.4-impl-legacy \
     camera.device@1.0-impl-legacy \
+    Snap \
     camera.msm8974 \
-    libboringssl-compat \
-    libstlport \
-    Snap
+    libshim_atomic \
+    libshim_camera_parameters
 
 # DRM
 PRODUCT_PACKAGES += \
@@ -146,11 +149,12 @@ PRODUCT_PACKAGES += \
 
 # GPS
 PRODUCT_PACKAGES += \
-    android.hardware.gnss@1.0-impl \
+    android.hardware.gnss@1.0-impl 
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/gps/gps.conf:system/etc/gps.conf \
     $(LOCAL_PATH)/gps/flp.conf:system/etc/flp.conf \
+    $(LOCAL_PATH)/gps/gps.conf:system/etc/gps.conf \
+    $(LOCAL_PATH)/gps/izat.conf:system/etc/izat.conf \
     $(LOCAL_PATH)/gps/sap.conf:system/etc/sap.conf
 
 # HIDL
@@ -215,6 +219,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libbson \
     libcnefeatureconfig \
+    libnl_2 \
     libxml2 \
     libtinyxml
 
@@ -223,7 +228,7 @@ PRODUCT_PACKAGES += \
     android.hardware.nfc@1.0-impl \
     NfcNci \
     Tag \
-    nfc_nci.bacon \
+    nfc_nci.msm8974 \
     com.android.nfc_extras
 
 # NFC access control + feature files + configuration
@@ -256,9 +261,7 @@ PRODUCT_PACKAGES += \
 
 # USB
 PRODUCT_PACKAGES += \
-    android.hardware.usb@1.0-service.pantech
-
-PRODUCT_PACKAGES += \
+    android.hardware.usb@1.0-service \
     com.android.future.usb.accessory
 
 # Vibrator
@@ -275,6 +278,7 @@ PRODUCT_PACKAGES += \
     android.hardware.wifi@1.0-service \
     wificond \
     hostapd \
+    libwpa_client \
     wcnss_service \
     wpa_supplicant
 

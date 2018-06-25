@@ -26,6 +26,7 @@ TARGET_NO_RADIOIMAGE := true
 
 # Platform
 TARGET_BOARD_PLATFORM := msm8974
+TARGET_BOARD_PLATFORM_GPU := qcom-adreno330
 
 # Architecture
 TARGET_ARCH := arm
@@ -36,7 +37,7 @@ TARGET_CPU_VARIANT := krait
 
 # Kernel
 BOARD_KERNEL_BASE := 0x00000000
-BOARD_KERNEL_CMDLINE := console=NULL,115200,n8 androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x37 ehci-hcd.park=3 vmalloc=260M loglevel=0
+BOARD_KERNEL_CMDLINE := console=NULL,115200,n8 androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x37 ehci-hcd.park=3 vmalloc=260M loglevel=0 androidboot.selinux=permissive
 BOARD_KERNEL_IMAGE_NAME := zImage
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_KERNEL_SEPARATED_DT := true
@@ -67,9 +68,10 @@ TARGET_USES_64_BIT_BINDER := true
 BOARD_HAVE_BLUETOOTH_QCOM := true
 
 # Camera
+TARGET_USES_MEDIA_EXTENSIONS := true
 USE_DEVICE_SPECIFIC_CAMERA := true
+BOARD_GLOBAL_CFLAGS += -DCAMERA_VENDOR_L_COMPAT
 TARGET_HAS_LEGACY_CAMERA_HAL1 := true
-TARGET_NEEDS_PLATFORM_TEXT_RELOCATIONS:= true
 
 # Charger
 BOARD_CHARGER_DISABLE_INIT_BLANK := true
@@ -79,11 +81,8 @@ GREEN_LED_PATH := "/sys/class/leds/led:rgb_green/brightness"
 BLUE_LED_PATH := "/sys/class/leds/led:rgb_blue/brightness"
 BLINK_PATH := "/sys/class/leds/led:rgb_red/blink"
 
-# CM Hardware
+# Lineage Hardware
 BOARD_HARDWARE_CLASS += $(COMMON_PATH)/lineagehw
-BOARD_USES_CYANOGEN_HARDWARE := true
-BOARD_HARDWARE_CLASS += \
-    hardware/cyanogen/cmhw
 
 # Enable dexpreopt to speed boot time
 ifeq ($(HOST_OS),linux)
@@ -141,13 +140,12 @@ TARGET_PROVIDES_LIBLIGHT := true
 TARGET_HAS_LEGACY_POWER_STATS := true
 TARGET_HAS_NO_WIFI_STATS := true
 TARGET_USES_INTERACTION_BOOST := true
-TARGET_POWERHAL_VARIANT := qcom
 
 # QCOM hardware
 BOARD_USES_QCOM_HARDWARE := true
 
 # Recovery
-TARGET_RECOVERY_FSTAB := $(COMMON_PATH)/rootdir/etc/fstab.recovery
+TARGET_RECOVERY_FSTAB := $(COMMON_PATH)/rootdir/etc/fstab.qcom
 
 # RIL
 TARGET_RIL_VARIANT := caf
@@ -182,6 +180,14 @@ TARGET_WCNSS_MAC_PREFIX          := d095c7
 WIFI_DRIVER_FW_PATH_STA          := "sta"
 WIFI_DRIVER_FW_PATH_AP           := "ap"
 WPA_SUPPLICANT_VERSION           := VER_0_8_X
+
+# Shims
+TARGET_LD_SHIM_LIBS := /system/vendor/lib/libqomx_jpegenc.so|libboringssl-compat.so \
+    /system/vendor/lib/libmmcamera2_stats_algorithm.so|libshim_atomic.so \
+    /system/vendor/lib/hw/camera.msm8974.so|libshim_atomic.so \
+    /system/vendor/lib/hw/camera.msm8974.so|libshim_camera_parameters.so \
+    /system/vendor/bin/mpdecision|libshim_atomic.so
+
 
 # TWRP Support - Optional
 ifeq ($(WITH_TWRP),true)

@@ -80,7 +80,7 @@ wifi.interface=wlan0
 wifi.supplicant_scan_interval=15
 
 # SDcardfs
-ro.sys.sdcardfs=true
+# ro.sys.sdcardfs=true
 
 # API (for CTS backward compatibility)
 ro.product.first_api_level=19
@@ -91,5 +91,4 @@ persist.media.treble_omx=false
 persist.sys.usb.control=disable
 persist.sys.isUsbOtgEnabled=true
 persist.pantech.usb.version=0
-
 
