@@ -52,8 +52,18 @@ framework/com.google.widevine.software.drm.jar
 framework/qcnvitems.jar
 framework/qcrilhook.jar
 
+
+# GPS
+bin/loc_launcher
+lib/libloc_api_v02.so
+lib/libloc_ds_api.so
+vendor/lib/libflp.so
+vendor/lib/libgeofence.so
+vendor/lib/libizat_core.so
+vendor/lib/liblbs_core.so
+vendor/lib/hw/flp.default.so
+
 #lib
-lib/hw/gps.msm8974.so
 lib/libchromatix_imx135_liveshot.so
 lib/libchromatix_imx214_liveshot.so
 lib/libchromatix_imx214_zsl.so
@@ -63,11 +73,6 @@ lib/libchromatix_s5k6b2yx_preview.so
 lib/libchromatix_s5k6b2yx_vt.so
 lib/libchromatix_s5k6b2yx_vt_common.so
 lib/libdrmdecrypt.so
-lib/libgps.utils.so
-lib/libloc_api_v02.so
-lib/libloc_core.so
-lib/libloc_ds_api.so
-lib/libloc_eng.so
 lib/libmdmdetect.so
 lib/libmmjpeg_interface.so
 lib/libmm-omxcore.so
@@ -89,7 +94,6 @@ vendor/lib/egl/libGLESv1_CM_adreno.so
 vendor/lib/egl/libGLESv2_adreno.so
 vendor/lib/egl/libq3dtools_adreno.so
 vendor/lib/hw/activity_recognition.msm8974.so
-vendor/lib/hw/flp.default.so
 vendor/lib/hw/sensors.msm8974.so
 vendor/lib/mediadrm/libwvdrmengine.so
 vendor/lib/soundfx/libqcbassboost.so
@@ -224,15 +228,11 @@ vendor/lib/libfastcvopt.so
 vendor/lib/libffmpeg_extractor.so
 vendor/lib/libffmpeg_omx.so
 vendor/lib/libffmpeg_utils.so
-vendor/lib/libflp.so
-vendor/lib/libgeofence.so
 vendor/lib/libgsl.so
 vendor/lib/libI420colorconvert.so
 vendor/lib/libidl.so
-vendor/lib/libizat_core.so
 vendor/lib/libjpegdhw.so
 vendor/lib/libjpegehw.so
-vendor/lib/liblbs_core.so
 vendor/lib/libllvm-qcom.so
 vendor/lib/liblqe.so
 vendor/lib/libmm-color-convertor.so
