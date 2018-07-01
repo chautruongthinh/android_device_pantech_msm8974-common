@@ -2,4 +2,5 @@
 r_dir_file(system_server, sysfs_usb_supply);
 allow system_server unlabeled:file unlink;
 allow system_server tmpfs:file open;
-allow system_server user_profile_data_file:dir read;
+allow system_server user_profile_data_file:dir { getattr open read };
+allow system_server theme_data_file:file { getattr open read };
