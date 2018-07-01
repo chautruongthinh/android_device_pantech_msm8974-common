@@ -109,12 +109,6 @@ TARGET_USERIMAGES_USE_F2FS := true
 # SDClang
 TARGET_USE_SDCLANG := true
 
-# Workaround for factory issue
-BOARD_VOLD_CRYPTFS_MIGRATE := true
-
-# Fonts
-EXTENDED_FONT_FOOTPRINT := true
-
 # Graphics
 MAX_EGL_CACHE_KEY_SIZE := 12*1024
 MAX_EGL_CACHE_SIZE := 2048*1024
@@ -129,9 +123,6 @@ TARGET_SYSTEM_PROP += $(COMMON_PATH)/system.prop
 
 # Keymaster
 TARGET_KEYMASTER_WAIT_FOR_QSEE := true
-
-# Legacy Blobs
-TARGET_NEEDS_TEXT_RELOCATIONS := true
 
 # Lights
 TARGET_PROVIDES_LIBLIGHT := true
