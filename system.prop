@@ -78,9 +78,6 @@ persist.timed.enable=true
 wifi.interface=wlan0
 wifi.supplicant_scan_interval=15
 
-# SDcardfs
-ro.sys.sdcardfs=true
-
 # OTG
 persist.sys.usb.control=disable
 persist.sys.isUsbOtgEnabled=true
