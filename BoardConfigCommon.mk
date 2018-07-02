@@ -136,7 +136,7 @@ TARGET_USES_INTERACTION_BOOST := true
 BOARD_USES_QCOM_HARDWARE := true
 
 # Recovery
-TARGET_RECOVERY_FSTAB := $(COMMON_PATH)/rootdir/etc/fstab.qcom
+TARGET_RECOVERY_FSTAB := $(COMMON_PATH)/rootdir/etc/fstab.recovery
 
 # RIL
 TARGET_RIL_VARIANT := caf
