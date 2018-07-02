@@ -381,12 +381,12 @@ on property:sys.boot_completed=1
     # USB fast charge mode
     write /sys/kernel/fast_charge/force_fast_charge 1
 
-service irsc_util /system/vendor/bin/irsc_util "/etc/sec_config"
+service irsc_util /vendor/bin/irsc_util "/etc/sec_config"
     class main
     user root
     oneshot
 
-service rmt_storage /system/vendor/bin/rmt_storage
+service rmt_storage /vendor/bin/rmt_storage
     class core
     user root
     group system wakelock
@@ -456,12 +456,12 @@ service ftmd /system/bin/logwrapper /system/bin/ftmdaemon
     oneshot
 
 # QMUX must be in multiple groups to support external process connections
-service qmuxd /system/vendor/bin/qmuxd
+service qmuxd /vendor/bin/qmuxd
     class main
     user radio
     group radio audio bluetooth gps diag oem_2950
 
-service netmgrd /system/vendor/bin/netmgrd
+service netmgrd /vendor/bin/netmgrd
     class main
     user root
     group root wifi wakelock radio inet oem_2950
