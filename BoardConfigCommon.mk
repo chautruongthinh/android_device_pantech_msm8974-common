@@ -84,11 +84,12 @@ BLINK_PATH := "/sys/class/leds/led:rgb_red/blink"
 # Lineage Hardware
 BOARD_HARDWARE_CLASS += $(COMMON_PATH)/lineagehw
 
-# Enable dexpreopt to speed boot time
+# Dexpreopt
 ifeq ($(HOST_OS),linux)
-  ifeq ($(call match-word-in-list,$(TARGET_BUILD_VARIANT),user),true)
-    ifeq ($(WITH_DEXPREOPT_BOOT_IMG_ONLY),)
-      WITH_DEXPREOPT_BOOT_IMG_ONLY := true
+  ifneq ($(TARGET_BUILD_VARIANT),eng)
+    ifeq ($(WITH_DEXPREOPT),)
+      WITH_DEXPREOPT := true
+      WITH_DEXPREOPT_BOOT_IMG_AND_SYSTEM_SERVER_ONLY := true
     endif
   endif
 endif
