@@ -95,7 +95,7 @@ ifeq ($(HOST_OS),linux)
 endif
 
 # Extended filesystem support
-TARGET_KERNEL_HAVE_EXFAT := true
+TARGET_EXFAT_DRIVER := sdfat
 
 # Filesystem
 BOARD_FLASH_BLOCK_SIZE := 131072
