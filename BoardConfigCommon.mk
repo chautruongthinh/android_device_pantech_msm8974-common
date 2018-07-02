@@ -144,6 +144,9 @@ TARGET_RIL_VARIANT := caf
 # Simple time service client
 BOARD_USES_QC_TIME_SERVICES := true
 
+# USB
+TARGET_USES_LEGACY_ADB_INTERFACE := true
+
 # SELinux
 include device/qcom/sepolicy/sepolicy.mk
 include device/qcom/sepolicy/legacy-sepolicy.mk
