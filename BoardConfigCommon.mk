@@ -124,6 +124,10 @@ TARGET_SYSTEM_PROP += $(COMMON_PATH)/system.prop
 # Keymaster
 TARGET_KEYMASTER_WAIT_FOR_QSEE := true
 
+# HIDL
+DEVICE_MANIFEST_FILE := $(PLATFORM_PATH)/manifest.xml
+DEVICE_MATRIX_FILE := $(PLATFORM_PATH)/compatibility_matrix.xml
+
 # Lights
 TARGET_PROVIDES_LIBLIGHT := true
 
