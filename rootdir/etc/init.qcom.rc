@@ -25,9 +25,9 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 
-import init.target.rc
-import init.pantech.usb.rc
-import init.qcom.power.rc
+import /vendor/etc/init/hw/init.target.rc
+import /vendor/etc/init/hw/init.pantech.usb.rc
+import /vendor/etc/init/hw/init.qcom.power.rc
 
 on early-init
     mount debugfs debugfs /sys/kernel/debug
