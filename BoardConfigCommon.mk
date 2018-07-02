@@ -94,6 +94,9 @@ ifeq ($(HOST_OS),linux)
   endif
 endif
 
+# Extended filesystem support
+TARGET_KERNEL_HAVE_EXFAT := true
+
 # Filesystem
 BOARD_FLASH_BLOCK_SIZE := 131072
 BOARD_BOOTIMAGE_PARTITION_SIZE     := 33554432
