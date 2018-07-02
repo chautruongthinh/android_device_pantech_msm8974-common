@@ -39,7 +39,7 @@ on init
     setprop persist.sys.wfd.virtual 0
 
 on fs
-    mount_all fstab.qcom
+    mount_all /vendor/etc/fstab.qcom
     restorecon_recursive /persist
 
     # Keeping following partitions outside fstab file. As user may not have
