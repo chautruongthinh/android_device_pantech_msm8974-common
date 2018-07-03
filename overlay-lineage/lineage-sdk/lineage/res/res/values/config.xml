@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
      Copyright (C) 2015-2016 The CyanogenMod Project
+                   2017-2018 The LineageOS Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -88,5 +89,9 @@
     <integer name="config_nightColorTemperature">4800</integer>
     <integer name="config_outdoorAmbientLuxHysteresis">1500</integer>
     <integer name="config_defaultLiveDisplayMode">0</integer>
+
+    <!-- Indicate whether encryption causes significant performances loss.
+         This MUST NOT be set to true on devices produced in 2016 or later -->
+    <bool name="config_trustLegacyEncryption">true</bool>
 	
 </resources>
