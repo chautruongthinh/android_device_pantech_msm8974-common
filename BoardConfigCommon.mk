@@ -183,6 +183,9 @@ BOARD_GLOBAL_CFLAGS += -DCOMPAT_SENSORS_M
 #Sound Picker
 TARGET_USE_OLD_SOUND_PICKER := true
 
+# HWUI
+HWUI_COMPILE_FOR_PERF := true
+
 # Wifi
 BOARD_HAS_QCOM_WLAN              := true
 BOARD_WLAN_DEVICE                := qcwcn
