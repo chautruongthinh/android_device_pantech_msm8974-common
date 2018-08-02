@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2015-2016 The CyanogenMod Project
+     Copyright (C) 2015 The CyanogenMod Project
                    2017-2018 The LineageOS Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
@@ -32,16 +32,14 @@
 
          LIGHTS_RGB_NOTIFICATION_LED = 1
          LIGHTS_RGB_BATTERY_LED = 2
-         LIGHTS_MULTIPLE_NOTIFICATION_LED = 4 (deprecated)
+         LIGHTS_MULTIPLE_NOTIFICATION_LED = 4
          LIGHTS_PULSATING_LED = 8
          LIGHTS_SEGMENTED_BATTERY_LED = 16
          LIGHTS_ADJUSTABLE_NOTIFICATION_LED_BRIGHTNESS = 32
-         LIGHTS_BATTERY_LED = 64
 
-         For example, a device with notification and battery lights
-         that support pulsating and RGB control would set this config
-         to 75. -->
-    <integer name="config_deviceLightCapabilities">75</integer>
+         For example, a device support pulsating, RGB notification and
+         battery LEDs would set this config to 11. -->
+    <integer name="config_deviceLightCapabilities">107</integer>
 
     <!-- Hardware keys present on the device, stored as a bit field.
          This integer should equal the sum of the corresponding value for each
@@ -55,7 +53,7 @@
             64 - Volume rocker
          For example, a device with Home, Back and Menu keys would set this
          config to 7. -->
-    <integer name="config_deviceHardwareKeys">83</integer>
+    <integer name="config_deviceHardwareKeys">71</integer>
 
     <!-- Hardware keys present on the device with the ability to wake, stored as a bit field.
          This integer should equal the sum of the corresponding value for each
@@ -71,27 +69,8 @@
          config to 7. -->
     <integer name="config_deviceHardwareWakeKeys">65</integer>
 
-    <!-- Control the behavior when the user long presses the home button.
-            0 - Nothing
-            1 - Menu key
-            2 - Recent apps view in SystemUI
-            3 - Launch assist intent
-            4 - Voice Search
-            5 - In-app Search
-         This needs to match the constants in
-         policy/src/com/android/internal/policy/impl/PhoneWindowManager.java -->
-    <integer name="config_longPressOnHomeBehavior">3</integer>
-
-    <integer name="config_longPressOnMenuBehavior">2</integer>
-
-	<!-- Default values for LiveDisplay -->
-    <integer name="config_dayColorTemperature">6500</integer>
-    <integer name="config_nightColorTemperature">4800</integer>
-    <integer name="config_outdoorAmbientLuxHysteresis">1500</integer>
-    <integer name="config_defaultLiveDisplayMode">0</integer>
-
     <!-- Indicate whether encryption causes significant performances loss.
          This MUST NOT be set to true on devices produced in 2016 or later -->
     <bool name="config_trustLegacyEncryption">true</bool>
-	
+
 </resources>
