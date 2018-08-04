@@ -19,9 +19,6 @@
 
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-    <!-- Button illumination -->
-    <bool name="config_deviceHasVariableButtonBrightness">false</bool>
-
     <!-- Boolean indicating whether the wifi chipset has dual frequency band support -->
     <bool translatable="false" name="config_wifi_dual_band_support">true</bool>
 
@@ -172,8 +169,6 @@
     <bool name="config_enableMultiUserUI">true</bool>
 
     <bool name="config_powerDecoupleInteractiveModeFromDisplay">true</bool>
-
-    <bool name="config_suspendWhenScreenOffDueToProximity">true</bool>
 
     <!-- Array of light sensor LUX values to define our levels for auto backlight brightness support.
          The N entries of this array define N  1 zones as follows:
