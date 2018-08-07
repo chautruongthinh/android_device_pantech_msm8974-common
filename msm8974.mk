@@ -133,14 +133,9 @@ PRODUCT_PACKAGES += \
     libshim_atomic \
     libshim_camera_parameters
 
-# DRM
-PRODUCT_PACKAGES += \
-    libshims_wvm
-
 # Data
 PRODUCT_PACKAGES += \
-    librmnetctl \
-    rmnetcli
+    librmnetctl
 
 # Doze
 PRODUCT_PACKAGES += \
@@ -232,12 +227,16 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.renderscript@1.0-impl
 
+# Misc dependency packages
+PRODUCT_PACKAGES += \
+    libbson \
+    libnl_2 \
+    libtinyxml
+
 # RIL
 PRODUCT_PACKAGES += \
     libcnefeatureconfig \
-    libnl_2 \
-    libxml2 \
-    libtinyxml
+    libxml2
 
 # NFC packages
 PRODUCT_PACKAGES += \
@@ -291,15 +290,17 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_PACKAGES += \
     android.hardware.wifi@1.0-service \
-    wificond \
+    dhcpcd.conf \
+    libwpa_client \
     hostapd \
-    wcnss_service \
-    wpa_supplicant
-
-PRODUCT_PACKAGES += \
+    wpa_supplicant \
     wpa_supplicant.conf \
     wpa_supplicant_overlay.conf \
     p2p_supplicant_overlay.conf
+
+PRODUCT_PACKAGES += \
+    wcnss_service \
+    wificond
 
 # Call the proprietary setup
 $(call inherit-product-if-exists, vendor/pantech/msm8974-common/msm8974-common-vendor.mk)
