@@ -190,6 +190,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libbson \
     libcnefeatureconfig \
+    libnl_2 \
     libxml2 \
     libtinyxml
 

@@ -16,6 +16,7 @@
 
 LOCAL_PATH := $(call my-dir)
 
+ifeq ($(TARGET_BOARD_PLATFORM),msm8974)
 ifneq ($(filter ef56 ef59 ef60 ef63,$(TARGET_DEVICE)),)
 include $(call all-subdir-makefiles,$(LOCAL_PATH))
 
@@ -26,7 +27,7 @@ MODEM_IMAGES := \
     modem.b06 modem.b07 modem.b08 modem.b09 modem.b10 modem.b11 \
     modem.b12 modem.b13 modem.b14 modem.b15 modem.b16 modem.b17 \
     modem.b18 modem.b19 modem.b20 modem.b21 modem.b22 modem.b23 \
-    modem.b24 modem.b25 modem.mdt
+    modem.b24 modem.b25 modem.b26 modem.b27 modem.mdt
 
 MODEM_SYMLINKS := $(addprefix $(TARGET_OUT_ETC)/firmware/,$(notdir $(MODEM_IMAGES)))
 $(MODEM_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
@@ -62,6 +63,15 @@ $(WCNSS_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 	$(hide) ln -sf /firmware/image/$(notdir $@) $@
 
 ALL_DEFAULT_INSTALLED_MODULES += $(WCNSS_SYMLINKS)
+
+WCNSS_CONFIG_SYMLINK := $(TARGET_OUT_ETC)/firmware/wlan/prima/WCNSS_qcom_cfg.ini
+$(WCNSS_CONFIG_SYMLINK): $(LOCAL_INSTALLED_MODULE)
+	@echo "WCNSS config link: $@"
+	@mkdir -p $(dir $@)
+	@rm -rf $@
+	$(hide) ln -sf /data/misc/wifi/$(notdir $@) $@
+
+ALL_DEFAULT_INSTALLED_MODULES += $(WCNSS_CONFIG_SYMLINK)
 
 MBA_IMAGES := \
     mba.b00 mba.mdt
@@ -99,6 +109,18 @@ $(ISDB_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 
 ALL_DEFAULT_INSTALLED_MODULES += $(ISDB_SYMLINKS)
 
+KM_IMAGES := \
+    keymaste.b00 keymaste.b01 keymaste.b02 keymaste.b03 keymaste.mdt
+
+KM_SYMLINKS := $(addprefix $(TARGET_OUT_ETC)/firmware/,$(notdir $(KM_IMAGES)))
+$(KM_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
+	@echo "Keymaster firmware link: $@"
+	@mkdir -p $(dir $@)
+	@rm -rf $@
+	$(hide) ln -sf /firmware/image/$(notdir $@) $@
+
+ALL_DEFAULT_INSTALLED_MODULES += $(KM_SYMLINKS)
+
 MC_IMAGES := \
     mc_v2.b00 mc_v2.b01 mc_v2.b02 mc_v2.b03 mc_v2.mdt
 
@@ -135,31 +157,5 @@ $(WV_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 
 ALL_DEFAULT_INSTALLED_MODULES += $(WV_SYMLINKS)
 
-TQS_IMAGES := \
-    tqs.b00 tqs.b01 tqs.b02 tqs.b03 tqs.mdt
-
-TQS_SYMLINKS := $(addprefix $(TARGET_OUT_ETC)/firmware/,$(notdir $(TQS_IMAGES)))
-$(TQS_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
-	@echo "TQS firmware link: $@"
-	@mkdir -p $(dir $@)
-	@rm -rf $@
-	$(hide) ln -sf /firmware/image/$(notdir $@) $@
-
-ALL_DEFAULT_INSTALLED_MODULES += $(TQS_SYMLINKS)
-
-# Create links for audcal data files
-$(shell mkdir -p $(TARGET_OUT)/etc/firmware/wcd9320; \
-	ln -sf /data/misc/audio/wcd9320_anc.bin \
-		$(TARGET_OUT)/etc/firmware/wcd9320/wcd9320_anc.bin;\
-	ln -sf /data/misc/audio/mbhc.bin \
-		$(TARGET_OUT)/etc/firmware/wcd9320/wcd9320_mbhc.bin; \
-	ln -sf /data/misc/audio/wcd9320_mad_audio.bin \
-		$(TARGET_OUT)/etc/firmware/wcd9320/wcd9320_mad_audio.bin)
-
-# Create a link for the WCNSS config file, which ends up as a writable
-# version in /data/misc/wifi
-$(shell mkdir -p $(TARGET_OUT)/etc/firmware/wlan/prima; \
-    ln -sf /data/misc/wifi/WCNSS_qcom_cfg.ini \
-	    $(TARGET_OUT)/etc/firmware/wlan/prima/WCNSS_qcom_cfg.ini)
-
+endif
 endif
