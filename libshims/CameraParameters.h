@@ -19,9 +19,7 @@ namespace android {
 class CameraParameters
 {
 public:
-    static const char FOCUS_MODE_MANUAL_POSITION[]; 
     static const char KEY_APP_MASK[]; 
-    static const char WHITE_BALANCE_MANUAL_CCT[]; 
     static const char SKY_IPL_FIXED_DOT[];
     static const char SKY_IPL_TEXT_BB_B[];
     static const char SKY_IPL_TEXT_WB_B[];
