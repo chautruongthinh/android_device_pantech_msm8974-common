@@ -590,16 +590,8 @@ service charger /charger
     critical
     seclabel u:r:charger:s0
 
-service qbcharger /charger -m 1
-    disabled
-    oneshot
-    seclabel u:r:healthd:s0
-
-on property:sys.qbcharger.enable=true
-    start qbcharger
-
-on property:sys.qbcharger.enable=false
-    stop qbcharger
+on charger
+    write /sys/class/leds/lcd-backlight/brightness 100
 
 # Define fastmmi
 service fastmmi /system/bin/mmi
