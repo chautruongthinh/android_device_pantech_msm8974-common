@@ -39,8 +39,19 @@ on init
     setprop persist.sys.wfd.virtual 0
 
 on fs
-    mount_all /vendor/etc/fstab.qcom
+    mount_all /vendor/etc/fstab.qcom --early
     restorecon_recursive /persist
+
+    # Start HW service manager early
+    start hwservicemanager
+
+ on late-fs
+    # Start services for bootanim
+    start surfaceflinger
+    start bootanim
+    start configstore-hal-1-0
+    start gralloc-2-0
+    mount_all /vendor/etc/fstab.qcom --late
 
     # Keeping following partitions outside fstab file. As user may not have
     # these partition flashed on the device. Failure to mount any partition in fstab file
