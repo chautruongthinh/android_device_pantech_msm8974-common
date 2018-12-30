@@ -184,9 +184,6 @@ BOARD_GLOBAL_CFLAGS += -DCOMPAT_SENSORS_M
 # Shipping API
 PRODUCT_SHIPPING_API_LEVEL := 19
 
-# Snapdragon LLVM
-TARGET_USE_SDCLANG := true
-
 # Wifi
 BOARD_HAS_QCOM_WLAN              := true
 BOARD_WLAN_DEVICE                := qcwcn
