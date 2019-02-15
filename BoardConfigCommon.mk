@@ -184,6 +184,9 @@ BOARD_GLOBAL_CFLAGS += -DCOMPAT_SENSORS_M
 # Shipping API
 PRODUCT_SHIPPING_API_LEVEL := 19
 
+#Sound Picker
+TARGET_USE_OLD_SOUND_PICKER := true
+
 # Wifi
 BOARD_HAS_QCOM_WLAN              := true
 BOARD_WLAN_DEVICE                := qcwcn
