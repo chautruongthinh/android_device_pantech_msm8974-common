@@ -148,6 +148,7 @@ on property:dev.bootcomplete=1
 
     # Start perfd
     rm /data/system/perfd/default_values
+    setprop vendor.post_boot.parsed 1
     start mpdecision
 
 service mpdecision /vendor/bin/mpdecision --avg_comp
