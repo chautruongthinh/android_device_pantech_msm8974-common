@@ -52,6 +52,9 @@ ro.qualcomm.perf.cores_online=2
 ro.vendor.extension_library=libqti-perfd-client.so
 drm.service.enabled=true
 
+# Memory optimizations
+ro.vendor.qti.sys.fw.bservice_enable=true
+
 # Graphics
 ro.sf.lcd_density=480
 ro.opengles.version=196608
