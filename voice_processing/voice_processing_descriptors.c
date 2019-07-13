@@ -31,7 +31,7 @@ const effect_descriptor_t qcom_product_aec_descriptor = {
         0,
         0,
         "Acoustic Echo Canceler",
-        "Qualcomm Fluence for Bacon"
+        "Qualcomm Fluence for OPPO msm8974"
 };
 
 // Noise suppression e4eb6b40-e88b-11e5-b6ad-0002a5d5c51b
@@ -43,7 +43,7 @@ const effect_descriptor_t qcom_product_ns_descriptor = {
         0,
         0,
         "Noise Suppression",
-        "Qualcomm Fluence for Bacon"
+        "Qualcomm Fluence for OPPO msm8974"
 };
 
 //ENABLE_AGC
@@ -56,6 +56,6 @@ const effect_descriptor_t qcom_product_ns_descriptor = {
 //        0,
 //        0,
 //        "Automatic Gain Control",
-//        "Qualcomm Fluence for Bacon"
+//        "Qualcomm Fluence for OPPO msm8974"
 //};
 
