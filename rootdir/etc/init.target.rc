@@ -137,46 +137,6 @@ on boot
     chown system radio /sys/class/leds/lp5523:channel7/brightness
     chown system radio /sys/class/leds/lp5523:channel8/brightness
 
-    chmod 0660 /sys/class/leds/gpled_0/brightness
-    chmod 0660 /sys/class/leds/gpled_1/brightness
-    chmod 0660 /sys/class/leds/gpled_2/brightness
-    chmod 0660 /sys/class/leds/gpled_3/brightness
-    
-    chown system radio /sys/class/leds/led:rgb_red/brightness
-    chown system radio /sys/class/leds/led:rgb_green/brightness
-    chown system radio /sys/class/leds/led:rgb_blue/brightness
-    chown system radio /sys/class/leds/gpled_0/brightness
-    chown system radio /sys/class/leds/gpled_1/brightness
-    chown system radio /sys/class/leds/gpled_2/brightness
-    chown system radio /sys/class/leds/gpled_3/brightness
-
-    chown system radio /sys/class/leds/led:rgb_red/brightness
-    chown system radio /sys/class/leds/led:rgb_red/blink
-    chown system radio /sys/class/leds/led:rgb_red/pan_blink
-    chown system radio /sys/class/leds/led:rgb_red/pan_brightness
-    chown system radio /sys/class/leds/led:rgb_red/pan_loop
-    chown system radio /sys/class/leds/led:rgb_red/pan_oneshot
-    chown system radio /sys/class/leds/led:rgb_red/pan_rainbow
-    chown system radio /sys/class/leds/led:rgb_red/pan_rgb_off
-
-    chown system radio /sys/class/leds/led:rgb_green/brightness
-    chown system radio /sys/class/leds/led:rgb_green/blink
-    chown system radio /sys/class/leds/led:rgb_green/pan_blink
-    chown system radio /sys/class/leds/led:rgb_green/pan_brightness
-    chown system radio /sys/class/leds/led:rgb_green/pan_loop
-    chown system radio /sys/class/leds/led:rgb_green/pan_oneshot
-    chown system radio /sys/class/leds/led:rgb_green/pan_rainbow
-    chown system radio /sys/class/leds/led:rgb_green/pan_rgb_off
-
-    chown system radio /sys/class/leds/led:rgb_blue/brightness
-    chown system radio /sys/class/leds/led:rgb_blue/blink
-    chown system radio /sys/class/leds/led:rgb_blue/pan_blink
-    chown system radio /sys/class/leds/led:rgb_blue/pan_brightness
-    chown system radio /sys/class/leds/led:rgb_blue/pan_loop
-    chown system radio /sys/class/leds/led:rgb_blue/pan_oneshot
-    chown system radio /sys/class/leds/led:rgb_blue/pan_rainbow
-    chown system radio /sys/class/leds/led:rgb_blue/pan_rgb_off
-
     chown system system /sys/class/timed_output/vibrator/enable
     chown system system /sys/class/timed_output/vibrator/vtg_level
     chown system system /sys/class/leds/keyboard-backlight/brightness
