@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-ifneq ($(filter ef56 ef59 ef60 ef63, $(TARGET_DEVICE)),)
+ifneq ($(filter ef56 ef59 ef60 ef63 ef65, $(TARGET_DEVICE)),)
 
 LOCAL_PATH:= $(call my-dir)
 

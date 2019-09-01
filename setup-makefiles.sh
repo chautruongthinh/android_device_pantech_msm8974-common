@@ -34,7 +34,7 @@ fi
 setup_vendor "$DEVICE_COMMON" "$VENDOR" "$CM_ROOT" true
 
 # Copyright headers and common guards
-write_headers "ef56 ef59 ef60 ef63"
+write_headers "ef56 ef59 ef60 ef63 ef65"
 
 write_makefiles "$MY_DIR"/proprietary-files.txt
 
