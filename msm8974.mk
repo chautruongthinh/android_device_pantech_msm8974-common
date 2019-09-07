@@ -218,6 +218,10 @@ PRODUCT_PACKAGES += \
     libnl_2 \
     libtinyxml
 
+# LiveDisplay
+PRODUCT_PACKAGES += \
+    vendor.lineage.livedisplay@2.0-service-sysfs
+
 # RIL
 PRODUCT_PACKAGES += \
     libcnefeatureconfig \
