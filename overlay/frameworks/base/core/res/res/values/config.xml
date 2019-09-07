@@ -267,4 +267,7 @@
         <item>A_GLONASS_POS_PROTOCOL_SELECT=0</item>
         <item>GPS_LOCK=0</item>
     </string-array>
+
+    <bool name="config_multiColorNotificationLed">true</bool>
+
 </resources>
