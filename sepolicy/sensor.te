@@ -1,1 +1,0 @@
-allow sensors unlabeled:dir { search getattr setattr };

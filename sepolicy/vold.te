@@ -1,5 +1,0 @@
-allow vold persist_file:dir r_file_perms;
-
-# Encryption
-allow vold firmware_file:dir search;
-allow vold firmware_file:file r_file_perms;
