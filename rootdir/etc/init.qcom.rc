@@ -613,3 +613,6 @@ service ril-daemon1 /system/bin/rild -c 2
 
 # Do not set any USB mode while charging
     setprop sys.usb.config charging
+
+on property:apexd.status=ready
+    mount none /system/etc/swcodec/ld.config.txt /apex/com.android.media.swcodec/etc/ld.config.txt bind
