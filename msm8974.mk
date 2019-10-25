@@ -240,7 +240,8 @@ PRODUCT_PACKAGES += \
 # RIL
 PRODUCT_PACKAGES += \
     libcnefeatureconfig \
-    libxml2
+    libxml2 \
+    librmnetctl
 
 # NFC packages
 PRODUCT_PACKAGES += \
