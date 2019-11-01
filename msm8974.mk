@@ -160,11 +160,6 @@ PRODUCT_COPY_FILES += \
 # HIDL
 DEVICE_MANIFEST_FILE := $(LOCAL_PATH)/manifest.xml
 
-# IPv6
-PRODUCT_PACKAGES += \
-    ebtables \
-    ethertypes
-
 # IRSC
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/sec_config:$(TARGET_COPY_OUT_VENDOR)/etc/sec_config
