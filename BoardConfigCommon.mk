@@ -74,6 +74,7 @@ TARGET_USES_64_BIT_BINDER := true
 
 # Bluetooth
 BOARD_HAVE_BLUETOOTH_QCOM := true
+QCOM_BT_USE_BTNV := true
 
 # Camera
 USE_DEVICE_SPECIFIC_CAMERA := true

@@ -376,10 +376,6 @@ on property:bluetooth.startbtsnoop=true
 on property:bluetooth.startbtsnoop=false
     stop btsnoop
 
-on property:vold.decrypt=trigger_restart_framework
-    start config_bdadd
-    start wcnss-service
-
 on property:persist.env.fastdorm.enabled=true
     setprop persist.radio.data_no_toggle 1
 
@@ -412,9 +408,15 @@ on property:vold.decrypt=trigger_restart_framework
     start config_bdaddr
     start wcnss-service
 
-service hciattach /system/vendor/bin/init.qcom.bt.sh
+service config_bdaddr /vendor/bin/btnvtool -O
     class late_start
     user bluetooth
+    group bluetooth net_bt_admin oem_2950 diag radio
+    oneshot
+	
+service hciattach /vendor/bin/init.qcom.bt.sh
+    class late_start
+    user root
     group bluetooth net_bt_admin oem_2950 diag radio
     disabled
     oneshot
@@ -424,13 +426,6 @@ on property:vendor.bluetooth.hciattach=true
 
 on property:vendor.bluetooth.hciattach=false
     setprop vendor.bluetooth.status off
-
-service hciattach_ath3k /system/bin/sh /system/etc/init.ath3k.bt.sh
-     class late_start
-     user bluetooth
-     group system bluetooth net_bt_admin misc
-     disabled
-     oneshot
 
 service bt-dun /system/bin/dun-server /dev/smd7 /dev/rfcomm0
     class late_start
