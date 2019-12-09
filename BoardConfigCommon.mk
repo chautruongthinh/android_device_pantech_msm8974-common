@@ -148,9 +148,6 @@ SF_VSYNC_EVENT_PHASE_OFFSET_NS := 6000000
 # Properties
 TARGET_SYSTEM_PROP += $(COMMON_PATH)/system.prop
 
-# Keymaster
-TARGET_KEYMASTER_WAIT_FOR_QSEE := true
-
 # HIDL
 DEVICE_MANIFEST_FILE := $(COMMON_PATH)/manifest.xml
 DEVICE_MATRIX_FILE := $(COMMON_PATH)/compatibility_matrix.xml
