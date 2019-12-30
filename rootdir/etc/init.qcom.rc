@@ -414,9 +414,9 @@ service config_bdaddr /vendor/bin/btnvtool -O
     group bluetooth net_bt_admin oem_2950 diag radio
     oneshot
 	
-service hciattach /vendor/bin/init.qcom.bt.sh
+service hciattach /system/vendor/bin/init.qcom.bt.sh
     class late_start
-    user root
+    user bluetooth
     group bluetooth net_bt_admin oem_2950 diag radio
     disabled
     oneshot
