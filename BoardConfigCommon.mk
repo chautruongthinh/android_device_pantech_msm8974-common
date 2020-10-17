@@ -151,6 +151,9 @@ DEVICE_MATRIX_FILE := $(COMMON_PATH)/compatibility_matrix.xml
 # Lights
 TARGET_PROVIDES_LIBLIGHT := true
 
+# Legacy memfd
+TARGET_HAS_MEMFD_BACKPORT := true
+
 # Boost
 TARGET_TOUCHBOOST_FREQUENCY := 1200
 
