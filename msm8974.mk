@@ -105,7 +105,6 @@ PRODUCT_PACKAGES += \
     android.hardware.audio@5.0-service \
     android.hardware.audio.effect@5.0-impl \
     audio.a2dp.default \
-    audio_policy.msm8974 \
     audio.primary.msm8974 \
     audio.r_submix.default \
     audio.usb.default \
@@ -146,7 +145,6 @@ PRODUCT_PACKAGES += \
     android.hardware.graphics.composer@2.1-impl \
     android.hardware.graphics.mapper@2.0-impl-2.1 \
     android.hardware.memtrack@1.0-impl \
-    copybit.msm8974 \
     gralloc.msm8974 \
     hwcomposer.msm8974 \
     memtrack.msm8974 \
@@ -235,7 +233,6 @@ PRODUCT_PACKAGES += \
 # Misc dependency packages
 PRODUCT_PACKAGES += \
     libbson \
-    libnl_2 \
     libtinyxml
 
 # RIL
