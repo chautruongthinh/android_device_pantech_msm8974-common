@@ -1,0 +1,1 @@
+genfscon sysfs /devices/qpnp-rtc-17/                  u:object_r:sysfs_rtc:s0

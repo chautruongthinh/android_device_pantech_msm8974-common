@@ -16,3 +16,6 @@
 
 # NFC
 /dev/pn54.*                                             u:object_r:nfc_device:s0
+
+# Binaries
+/(vendor|system/vendor)/bin/timekeep                                                u:object_r:timekeep_exec:s0
