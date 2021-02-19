@@ -1,5 +1,4 @@
 #app
--app/TimeService/TimeService.apk:vendor/app/TimeService/TimeService.apk
 -app/shutdownlistener/shutdownlistener.apk:vendor/app/shutdownlistener/shutdownlistener.apk
 
 # bin
@@ -271,7 +270,6 @@ vendor/lib/libsystem_health_mon.so
 vendor/lib/libthermalclient.so
 vendor/lib/libthermalioctl.so
 vendor/lib/libtime_genoff.so
-vendor/lib/libTimeService.so
 vendor/lib/libuiblur.so
 vendor/lib/libwvdrm_L1.so
 vendor/lib/libwvm.so
